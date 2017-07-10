@@ -63,6 +63,10 @@ gulp.task('dev',['less','less-lib'], function() {
 
 });
 
+gulp.task('lib',['less-lib','js-lib'], function() {
+
+});
+
 // gulp默认执行的任务，第二个数组的任务在你当前任务运行之前完成
 gulp.task('default',['less','js','less-lib','js-lib'], function() {
 

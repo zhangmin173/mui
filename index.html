@@ -6,10 +6,15 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 	<title>test</title>
 	<link rel="stylesheet" href="css/normalize.css">
+	
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="js/lib/font-awesome/4.6.3/font-awesome.css">
 	<script src="js/lib/jquery/1.9.1/jquery.js"></script>
 	<script src="js/dev/common.js"></script>
+
+	<link rel="stylesheet" href="js/lib/pop/1.0/pop.css">
+	<script src="js/lib/pop/1.0/pop.js"></script>
+	
 </head>
 <body style="padding-bottom: 10rem;">
 	<header class="m-header">
@@ -19,9 +24,26 @@
 	</header>
 	<hr>
 	<section class="main">
-		<button class="m-btn bg-default" type="button">按钮</button>
-		<button class="m-btn bg-primary m-btn-lg m-radius" type="button">按钮</button>
-		<button class="m-btn bg-warning m-btn-sm m-radius" type="button">按钮</button>
+		<ul>
+			
+		</ul>
+		
+		<!-- <div class="m-pop">
+			<div class="pop-overlay"></div>
+			<div class="pop-body">
+
+			</div>
+		</div> -->
+		<script id="js-pop-temp" type="text/html">
+			<ul style="padding: 1rem;">
+				<li>1.规则1</li>
+				<li>2.规则2</li>
+			</ul>
+		</script>
+		<br><br>
+		<button class="m-btn bg-default" type="button" onclick="$.pop({ msg: 'hello'})">按钮</button>
+		<button class="m-btn bg-primary m-btn-lg m-radius" type="button" onclick="$.tip('hello world')">按钮</button>
+		<button class="m-btn bg-warning m-btn-sm m-radius" type="button" onclick="$.show('js-pop-temp')">按钮</button>
 		<button class="m-btn bg-success" type="button">按钮</button>
 		<button class="m-btn bg-error" type="button">按钮</button>
 		<br><br>
