@@ -11,10 +11,10 @@
                             '<div class="pop-body">'+
                                 '<div class="pop-title js-pop-title"></div>'+
                                 '<div class="pop-msg js-pop-msg"></div>'+
-                                '<div class="pop-btns">'+
-                                    '<button class="m-btn bg-default outlined js-pop-btnleft"></button>'+
-                                    '<button class="m-btn bg-default outlined js-pop-btnmid"></button>'+
-                                    '<button class="m-btn bg-primary js-pop-btnright"></button>'+
+                                '<div class="pop-btns m-row">'+
+                                    '<div class="m-item tx-m"><button class="m-btn bg-default outlined js-pop-btnleft"></button></div>'+
+                                    '<div class="m-item tx-m"><button class="m-btn bg-default outlined js-pop-btnmid"></button></div>'+
+                                    '<div class="m-item tx-m"><button class="m-btn bg-primary js-pop-btnright"></button></div>'+
                                 '</div>'+
                             '</div>'+
                         '</div>',
