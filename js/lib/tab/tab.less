@@ -1,0 +1,38 @@
+/* 变量 */
+@default: #999;
+@primary: #003366;
+@warning: #f1a325;
+@success: #38b03f;
+@error: #ea644a;
+.m-tab {
+	overflow-x: scroll;
+	margin-bottom: 1rem;
+
+	&::-webkit-scrollbar { 
+		display:none;
+	}
+
+	ul {
+		margin: 0;
+		width: 40rem;
+		overflow: hidden;
+		background-color: #fff;
+	}
+
+	li {
+		float: left;
+		padding: 1rem 0;
+		width: 8rem;
+		text-align: center;
+		border-bottom: .2rem solid transparent;
+
+		&.cur {
+			border-color: @primary;
+		}
+	}
+}
+.m-card {
+	padding: 1rem;
+	background-color: #fff;
+
+}

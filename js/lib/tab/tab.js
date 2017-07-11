@@ -1,5 +1,5 @@
 /**
- * 选项卡+分页加载数据
+ * 选项卡
  *
  * @Author: jaymz
  * @Date: 2017/7/10
@@ -8,79 +8,67 @@
     var opts;
     $.fn.tab = function (option) {
 
+        if (typeof option == "string") {
+            return $.fn.tab.methods[option](this);
+        }
         var def = {
-            url: '', //服务器地址
-            model: '', //模型
-            querys: [], //额外查询参数
-            isLoad: [],///是否第一次执行
-            
-            onLoadSuccess: function (data) { //数据加载成功触发
+            isLoad: [], //是否已经加载
+            thisID: '', //当前对象的ID
+            cardId: 'js-card', //容器ID
+            itemId: [], //内容ID
+            nowId: 0, //当前ID
+            showItemNum: 4, //默认显示的个数
+            onInitSuccess: function (opt) { //初始化完成后执行
 
             },
-            onBeforeLoad: function (data) {//数据加载前触发
-
-            }
         }
         opts = $.extend(def, option);
         opts.thisID = $(this).attr("id");
-        ///开启分页
-        if (opts.pagination) {
-            $(window).scroll(function () {
-                var totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
-                if ($(document).height() <= totalheight) {
-                    if (opts.total > opts.pageIndex * opts.pageSize) {
-                        opts.pageIndex++;
-                        $("#" + opts.thisID).tab('load');
-                    }
-                    else {
-                        if (opts.isOneShow == true) {
-                            $("#" + opts.thisID).append(opts.noData);
-                            opts.isOneShow = false;
-                        }
-                        else {
+        
+        // 计算li宽度
+        var vw = $(this).width(),
+            ulObj = $(this).find('ul'),
+            liObj = ulObj.find('li'),
+            cardObj = $('#'+opts.cardId).children('div'),
+            liNum = liObj.length,
+            liW = 0;
 
-                        }
-                    }
-                }
-            });
+        if (liNum <= opts.showItemNum) {
+            liW = vw/liNum;
+        } else {
+            liW = vw/opts.showItemNum;           
         }
-        $(this).tab('load');
+        liObj.width(liW);
+        ulObj.width(liW*liNum);
+
+        // 初始化
+        liObj.each(function() {
+            var index = $(this).index();
+            opts.isLoad[index] = false;
+        })
+        cardObj.each(function() {
+            var index = $(this).index();
+            opts.itemId[index] = opts.thisID+'-'+index;
+            $(this).attr('id', opts.itemId[index]);
+        })
+
+        // 绑定事件
+        liObj.on('click',function() {
+            var index = $(this).index();
+            liObj.removeClass('cur');
+            $(this).addClass('cur');
+            $('#'+opts.itemId[opts.nowId]).hide();
+            $('#'+opts.itemId[index]).show();
+            opts.nowId = index;
+            $("#" + opts.thisID).tab('load');
+        })
+        $("#" + opts.thisID).tab('load');
     }
-    $.fn.MobilePageLoad.methods = {
+    $.fn.tab.methods = {
         load: function (jq) {
-            var data = opts.queryParams();
-            data.offset = (opts.pageIndex-1)*opts.pageSize;//当前页码
-            data.limit = opts.pageSize;//分页大小
-            Post(opts.url, data, function (res) {
-                // var res = eval('('+res+')');
-                opts.onBeforeLoad(res);
-                try {
-                    if (res.total == undefined) {
-                        laytpl($("#" + opts.model).html()).render(res, function (render) {
-                            $(jq).html(render);
-                        });
-                        return;
-                    }
-                    opts.total = res.total;
-                    if (res.total == 0) {//无数据情况
-                        $(jq).html(opts.initNoData);
-                    } else {
-                        laytpl($("#" + opts.model).html()).render(res, function (render) {
-                            $(jq).append(render);
-                        });
-                    }
-
-                } catch (e) {
-                    $(jq).html(opts.initNoData);
-                }
-
-                opts.onLoadSuccess(res);
-            })
-        },
-        reLoad: function (jq) {
-            opts.pageIndex = 1;
-            $(jq).html("");
-            $(jq).MobilePageLoad('load');
+            if (opts.isLoad[opts.nowId]) { return;}
+            opts.onInitSuccess(opts);
+            opts.isLoad[opts.nowId] = true;
         }
     }
 })(jQuery);

@@ -16,6 +16,10 @@
 	<script src="js/lib/pop/1.0/pop.js"></script>
 	
 	<script src="js/lib/html2canvas/html2canvas.js"></script>
+
+	<script src="js/lib/scrollLoad/scrollLoad.js"></script>
+	<link rel="stylesheet" href="js/lib/tab/tab.css">
+	<script src="js/lib/tab/tab.js"></script>
 </head>
 <body style="padding-bottom: 10rem;">
 	<header class="m-header">
@@ -25,10 +29,44 @@
 	</header>
 	<hr>
 	<section class="main">
-		<ul>
-			
-		</ul>
-		
+		<div id="js-tab" class="m-tab">
+			<ul>
+				<li class="cur">新闻</li>
+				<li>娱乐</li>
+				<li>吃喝玩乐</li>
+				<li>八卦</li>
+				<li>财经</li>
+			</ul>
+		</div>
+		<div id="js-card" class="m-card">
+			<div>1111</div>
+			<div style="display: none;">2222</div>
+			<div style="display: none;">3333</div>
+			<div style="display: none;">4444</div>
+			<div style="display: none;">5555</div>
+		</div>
+		<script>
+			var querys = [
+					{ url: '111' },
+					{ pageIndex: 3 }
+				];
+			$('#js-tab').tab({
+				cardId: 'js-card',
+				onInitSuccess: function(opt) {
+					$('#'+opt.thisID+'-'+opt.nowId).scrollLoad({
+						url: '',
+						model:'',
+						queryParams: function() {
+							if (querys[opt.nowId]) {
+								console.log(querys[opt.nowId]);
+								return querys[opt.nowId];
+							}
+							return { };
+						}
+					})
+				}
+			})
+		</script>
 		<!-- <div class="m-pop">
 			<div class="pop-overlay"></div>
 			<div class="pop-body">
