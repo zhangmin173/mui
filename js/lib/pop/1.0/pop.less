@@ -7,7 +7,7 @@
 .m-pop {
 	//display: none;
 
-	.pop-overlay {
+	.m-pop-overlay {
 		position: fixed;
 		left: 0; 
 		top: 0; 
@@ -17,7 +17,7 @@
 		z-index: 1000;
 	}
 
-	.pop-body {
+	.m-pop-box {
 		position: fixed;
 		top: 50%; 
 		left: 50%; 
@@ -28,46 +28,82 @@
 		background-color: #fff;
 		border-radius: 5px;
 
-		&.pop-tip {
-			background-color: @primary;
-			color: #fff;
+		.m-pop-msg {
+			color: #666;
 		}
 
-		.pop-close {
+		&.m-pop-tip {
+			background-color: #000;
+
+			.m-pop-msg {
+				color: #fff;
+			}
+		}
+
+		.m-pop-close {
 			position: absolute;
 			left: 50%;
 			transform: translate(-50%,0);
-			bottom: -3.6rem;
-
+			bottom: -36px;
 			display: block;
-			width: 2.6rem;
-			height: 2.6rem;
-			line-height: 2.6rem;
+			width: 26px;
+			height: 26px;
+			line-height: 1em;
+			font-size: 26px;
+			font-weight: 400;
 			text-align: center;
 			background-color: transparent;
-			border: .1rem solid #fff;
+			border: 1px solid #fff;
 			border-radius: 50%;
 			color: #fff;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			-webkit-tap-highlight-color: transparent;
 		}
 	}
 
-	.pop-title {
-		padding: 1.0rem 0;
-		font-size: 1.6rem;
-		font-weight: 400;
-		text-align: center; 
+	.m-pop-title {
+		padding: 10px 0;
+		font-size: 14px;
+		font-weight: 600;
+		text-align: center;
+		color: #000;
 	}
-	.pop-msg {
-		padding: 1.0rem;
-		font-size: 1.4rem;
-		
+	.m-pop-msg {
+		padding: 10px;
+		font-size: 16px;
 	}
-	.pop-btns {
-		padding: 1rem 0;
-		border-top: .1rem solid #eee;
+	.m-pop-btns {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+		align-content: stretch;
+		flex: auto;
+		padding: 10px 0;
+		border-top: 1px solid #eee;
+
+		.m-pop-btn-box {
+			flex: auto;
+			text-align: center;
+		}
 
 		button {
 			display: none;
+			padding: 5px 10px;
+			font-size: 12px;
+			font-weight: normal;
+			line-height: 1.0em;
+			text-align: center;
+			color: #666;
+			white-space: nowrap;
+			vertical-align: middle;
+			touch-action: manipulation;
+			cursor: pointer;
+			user-select: none;
+			background-color: transparent;
+			background-image: none;
+			border: 1px solid transparent;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			-webkit-tap-highlight-color: transparent;
 		}
 	}
 	

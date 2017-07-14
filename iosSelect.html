@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>test</title>
+	<link rel="stylesheet" href="js/lib/iosSelect/iosSelect.css">
+	<script src="js/lib/jquery/1.9.1/jquery.js"></script>
+	<script src="js/lib/iscroll/iscroll.js"></script>
+	<script src="js/lib/iosSelect/iosSelect.js"></script>
+	<script src="http://zhoushengfe.com/iosselect/demo/three/areaData_v2.js"></script>
+	<style>
+
+	</style>
+</head>
+<body>
+	<div class="form-item item-line" id="select_contact">                 
+	    <label>省、市</label>                 
+	    <div class="pc-box">                     
+	        <input type="hidden" name="contact_province_code" data-id="0001" id="contact_province_code" value="" data-province-name="">                     
+	        <input type="hidden" name="contact_city_code" id="contact_city_code" value="" data-city-name=""><span data-city-code="510100" data-province-code="510000" data-district-code="510105" id="show_contact">四川省 成都市 青羊区</span> 
+	    </div>             
+	</div>
+
+	<script>
+		var selectContactDom = $('#select_contact');
+	    var showContactDom = $('#show_contact');
+	    var contactProvinceCodeDom = $('#contact_province_code');
+	    var contactCityCodeDom = $('#contact_city_code');
+	    selectContactDom.bind('click', function () {
+	        var sccode = showContactDom.attr('data-city-code');
+	        var scname = showContactDom.attr('data-city-name');
+
+	        var oneLevelId = showContactDom.attr('data-province-code');
+	        var twoLevelId = showContactDom.attr('data-city-code');
+	        var threeLevelId = showContactDom.attr('data-district-code');
+	        var iosSelect = new IosSelect(3, 
+	            [iosProvinces, iosCitys, iosCountys],
+	            {
+	                title: '地址选择',
+	                itemHeight: 35,
+	                relation: [1, 1, 0, 0],
+	                oneLevelId: oneLevelId,
+	                twoLevelId: twoLevelId,
+	                threeLevelId: threeLevelId,
+	                callback: function (selectOneObj, selectTwoObj, selectThreeObj) {
+	                    contactProvinceCodeDom.val(selectOneObj.id); 
+	                    contactProvinceCodeDom.attr('data-province-name', selectOneObj.value);
+	                    contactCityCodeDom.val(selectTwoObj.id);
+	                    contactCityCodeDom.attr('data-city-name', selectTwoObj.value);
+
+	                    showContactDom.attr('data-province-code', selectOneObj.id);
+	                    showContactDom.attr('data-city-code', selectTwoObj.id);
+	                    showContactDom.attr('data-district-code', selectThreeObj.id);
+	                    showContactDom.html(selectOneObj.value + ' ' + selectTwoObj.value + ' ' + selectThreeObj.value);
+	                }
+	        });
+	    });
+	</script>
+</body>
+</html>

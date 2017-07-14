@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>test</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="js/lib/font-awesome/4.6.3/font-awesome.css">
+	<script src="js/lib/jquery/1.9.1/jquery.js"></script>
+	<script src="js/dev/common.js"></script>
+</head>
+<body style="padding-bottom: 10rem;">
+	<header class="m-header">
+		<a class="m-header-left" href="##"><i class="fa fa-angle-left"></i></a>
+		<span class="m-header-title">导航标题</span>
+		<a class="m-header-right" href="##"><i class="fa fa-home"></i></a>
+	</header>
+	<hr>
+	<section class="main">
+		<script id="js-pop-temp" type="text/html">
+			<ul style="padding: 1rem;">
+				<li>1.规则1</li>
+				<li>2.规则2</li>
+			</ul>
+		</script>
+		<br><br>
+		<button class="m-btn bg-default" type="button" onclick="$.pop({ msg: 'hello'})">按钮</button>
+		<button class="m-btn bg-primary m-btn-lg m-radius" type="button" onclick="$.tip('hello world')">按钮</button>
+		<button class="m-btn bg-warning m-btn-sm m-radius" type="button" onclick="$.show('js-pop-temp')">按钮</button>
+		<button class="m-btn bg-success" type="button" onclick="$('.m-pop').show();$('#slide').slideToggle();">按钮</button>
+		<button class="m-btn bg-error" type="button">按钮</button>
+		<br><br>
+		<button class="m-btn bg-default outlined m-btn-lg m-radius" type="button">按钮</button>
+		<button class="m-btn bg-primary outlined m-radius" type="button">按钮</button>
+		<button class="m-btn bg-warning outlined" type="button">按钮</button>
+		<button class="m-btn bg-success outlined" type="button">按钮</button>
+		<button class="m-btn bg-error outlined" type="button">按钮</button>
+	</section>
+	<br><br>
+	<section class="main">
+		<label class="m-label bg-default">注意</label>
+		<label class="m-label bg-primary">注意</label>
+		<label class="m-label bg-warning m-radius">注意</label>
+		<label class="m-label bg-success">注意</label>
+		<label class="m-label bg-error">注意</label>
+		<br><br>
+		<label class="m-label bg-default outlined">注意</label>
+		<label class="m-label bg-primary outlined">注意</label>
+		<label class="m-label bg-warning outlined">注意</label>
+		<label class="m-label bg-success outlined">注意</label>
+		<label class="m-label bg-error outlined">注意</label>
+		<br><br>
+	</section>
+	<section class="main">
+		<input class="m-input m-success" type="text">
+		<br><br>
+		<select class="m-select m-error">
+			<option>1</option>
+			<option>2</option>
+		</select>
+		<br><br>
+		<span class="m-check">
+			<input id="1" type="checkbox" name="check">
+			<label for="1">支付宝</label>
+		</span>
+		<span class="m-check">
+			<input id="2" type="checkbox" name="check">
+			<label for="2">微信</label>
+		</span>
+		<br><br>
+		<span class="m-counter">
+			<span class="m-counter-btn">-</span>
+			<input type="text" value="1" readonly>
+			<span class="m-counter-btn">+</span>
+		</span>
+	</section>
+	<div class="m-list">
+		<div class="m-list-item m-row">
+			<div class="m-item-2">
+				图标
+			</div>
+			<div class="m-item-8">
+				我的收藏
+			</div>
+			<div class="m-item-2 tx-r">
+				>>
+			</div>
+		</div>
+		<a class="m-list-item m-row" href="##">
+			<div class="m-item-4">
+				商品数量
+			</div>
+			<div class="m-item-8">
+				1
+			</div>
+		</a>
+		<div class="m-list-item m-row">
+			<div class="m-item-4">
+				买家留言
+			</div>
+			<div class="m-item-8">
+				<input class="m-input" type="text">
+			</div>
+		</div>
+	</div>
+	<br><br>
+	<div class="m-list">
+		<div class="m-list-item m-row">
+			<div class="m-item-4">
+				支付方式
+			</div>
+			<div class="m-item-6">
+				
+			</div>
+			<div class="m-item-2 tx-r">
+				>>
+			</div>
+		</div>
+		<div class="m-list">
+			<div class="m-list-item m-row">
+				<div class="m-item-2 tx-m">
+					图标
+				</div>
+				<div class="m-item-8">
+					我的收藏
+				</div>
+				<div class="m-item-2 tx-r">
+					>>
+				</div>
+			</div>
+			<div class="m-list-item m-row">
+				<div class="m-item-2 tx-m">
+					图标
+				</div>
+				<div class="m-item-8">
+					我的收藏
+				</div>
+				<div class="m-item-2 tx-r">
+					>>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

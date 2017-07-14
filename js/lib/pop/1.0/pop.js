@@ -7,14 +7,14 @@
 ;(function ($) {
     $.pop = function(options) {
         var template = '<div class="m-pop">'+
-                            '<div class="pop-overlay"></div>'+
-                            '<div class="pop-body">'+
-                                '<div class="pop-title js-pop-title"></div>'+
-                                '<div class="pop-msg js-pop-msg"></div>'+
-                                '<div class="pop-btns m-row">'+
-                                    '<div class="m-item tx-m"><button class="m-btn bg-default outlined js-pop-btnleft"></button></div>'+
-                                    '<div class="m-item tx-m"><button class="m-btn bg-default outlined js-pop-btnmid"></button></div>'+
-                                    '<div class="m-item tx-m"><button class="m-btn bg-primary js-pop-btnright"></button></div>'+
+                            '<div class="m-pop-overlay"></div>'+
+                            '<div class="m-pop-box">'+
+                                '<div class="m-pop-title js-pop-title"></div>'+
+                                '<div class="m-pop-msg js-pop-msg"></div>'+
+                                '<div class="m-pop-btns">'+
+                                    '<div class="m-pop-btn-box"><button class="m-pop-btn js-pop-btnleft"></button></div>'+
+                                    '<div class="m-pop-btn-box"><button class="m-pop-btn js-pop-btnmid"></button></div>'+
+                                    '<div class="m-pop-btn-box"><button class="m-pop-btn js-pop-btnright"></button></div>'+
                                 '</div>'+
                             '</div>'+
                         '</div>',
@@ -89,9 +89,9 @@
 
     $.tip = function(msg) {
         var template = '<div class="m-pop">'+
-                            '<div class="pop-overlay"></div>'+
-                            '<div class="pop-body pop-tip">'+
-                                '<div class="pop-msg js-pop-msg"></div>'+
+                            '<div class="m-pop-overlay"></div>'+
+                            '<div class="m-pop-box m-pop-tip">'+
+                                '<div class="m-pop-msg js-pop-msg"></div>'+
                             '</div>'+
                         '</div>';
 
@@ -109,10 +109,10 @@
 
     $.show = function(tempId) {
         var template = '<div class="m-pop">'+
-                            '<div class="pop-overlay"></div>'+
-                            '<div class="pop-body">'+
-                                '<span class="pop-close js-pop-close">X</span>'+
-                                '<div class="pop-msg js-pop-msg"></div>'+
+                            '<div class="m-pop-overlay"></div>'+
+                            '<div class="m-pop-box">'+
+                                '<span class="m-pop-close js-pop-close">&times;</span>'+
+                                '<div class="m-pop-msg js-pop-msg"></div>'+
                             '</div>'+
                         '</div>';
         var $temp = $(template), //创建popup对象
