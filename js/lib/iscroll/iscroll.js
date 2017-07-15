@@ -327,7 +327,6 @@ function IScroll (el, options) {
 
 		snapThreshold: 0.334,
 
-// INSERT POINT: OPTIONS
 		disablePointer : !utils.hasPointer,
 		disableTouch : utils.hasPointer || !utils.hasTouch,
 		disableMouse : utils.hasPointer || utils.hasTouch,
@@ -392,8 +391,6 @@ function IScroll (el, options) {
 
 	this.options.invertWheelDirection = this.options.invertWheelDirection ? -1 : 1;
 
-// INSERT POINT: NORMALIZATION
-
 	// Some defaults
 	this.x = 0;
 	this.y = 0;
@@ -401,7 +398,6 @@ function IScroll (el, options) {
 	this.directionY = 0;
 	this._events = {};
 
-// INSERT POINT: DEFAULTS
 
 	this._init();
 	this.refresh();
@@ -431,8 +427,6 @@ IScroll.prototype = {
 		if ( this.options.keyBindings ) {
 			this._initKeys();
 		}
-
-// INSERT POINT: _init
 
 	},
 
