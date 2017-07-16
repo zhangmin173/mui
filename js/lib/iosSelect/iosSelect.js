@@ -38,6 +38,7 @@
 			}
 			obj['dom'] = dom;
 			obj['atindex'] = index;
+			console.log(obj);
 			return obj;
 		},
 		attrToHtml: function(obj) {
@@ -128,9 +129,9 @@
 		this.callback = options.callback;
 		this.title = options.title || '';
 		this.options.itemHeight = options.itemHeight || 35;
-		this.options.itemShowCount = [3, 5, 7, 9].indexOf(options.itemShowCount) !== -1? options.itemShowCount: 7; 
+		this.options.itemShowCount = [3, 5, 7, 9].indexOf(options.itemShowCount) !== -1? options.itemShowCount: 7;
 		this.options.coverArea1Top = Math.floor(this.options.itemShowCount / 2);
-		this.options.coverArea2Top = Math.ceil(this.options.itemShowCount / 2); 
+		this.options.coverArea2Top = Math.ceil(this.options.itemShowCount / 2);
 		this.options.headerHeight = options.headerHeight || 44;
 		this.options.relation = iosSelectUtil.isArray(this.options.relation)? this.options.relation: [];
 		this.options.oneTwoRelation = this.options.relation[0];
@@ -1025,7 +1026,7 @@
 	    		whiteItemHtml += '<li style="height: ' + this.options.itemHeight +this.options.cssUnit +  '; line-height: ' + this.options.itemHeight +this.options.cssUnit + '"></li>';
 	    	}
 	    	return whiteItemHtml;
-	    }, 
+	    },
 	    changeClassName: function(levelContainDom, plast) {
 	    	var pdom;
 	    	if (this.options.itemShowCount === 3) {

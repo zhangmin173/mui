@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 	<title>选项卡切换</title>
 	<script src="js/lib/jquery/1.9.1/jquery.js"></script>
-	<link rel="stylesheet" href="js/lib/tab/tab.css">
-	<script src="js/lib/tab/tab.js"></script>
+	<link rel="stylesheet" href="js/lib/m-tab/1.0/m-tab.css">
+	<script src="js/lib/m-tab/1.0/m-tab.js"></script>
 	<style>
 		body {
 			background-color: #f2f2f2;
@@ -20,44 +20,36 @@
 			<li class="cur">新闻</li>
 			<li>娱乐</li>
 			<li>吃喝玩乐</li>
-			<li>八卦</li>
-			<li>财经</li>
 		</ul>
 	</div>
 	<div id="js-card" class="m-card">
-		<div>1111</div>
-		<div style="display: none;">2222</div>
-		<div style="display: none;">3333</div>
-		<div style="display: none;">4444</div>
-		<div style="display: none;">5555</div>
+		<div></div>
+		<div style="display: none;"></div>
+		<div style="display: none;"></div>
 	</div>
+
+	<button type="button" onclick="refresh()">刷新dom</button>
+
 	<script>
-		var querys = [
-				{ url: '111' },
-				{ pageIndex: 3 }
-			];
+		var d1 =  function(id) {
+			console.log(id);
+		}
+		var d2 =  function(id) {
+			console.log(id);
+		}
+		var d3 =  function(id) {
+			console.log(id);
+		}
+
+		var d = [d1,d2,d3];
 		$('#js-tab').tab({
+			data: d,
 			cardId: 'js-card',
-			onInitSuccess: function(opt) {
-				$('#'+opt.thisID+'-'+opt.nowId).scrollLoad({
-					url: '',
-					model:'',
-					queryParams: function() {
-						if (querys[opt.nowId]) {
-							console.log(querys[opt.nowId]);
-							return querys[opt.nowId];
-						}
-						return { };
-					}
-				})
-			}
 		})
-	</script>
-	<script id="js-pop-temp" type="text/html">
-		<ul style="padding: 1rem;">
-			<li>1.规则1</li>
-			<li>2.规则2</li>
-		</ul>
+
+		function refresh() {
+			$('#js-tab').tab('refresh');
+		}
 	</script>
 </body>
 </html>

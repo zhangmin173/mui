@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>三级城市联动选择器</title>
+	<script src="js/lib/jquery/1.9.1/jquery.js"></script>
+	<script src="js/lib/iscroll/iscroll.js"></script>
+	<link rel="stylesheet" href="js/lib/m-select/1.0/m-select.css">
+	<script src="js/lib/m-select/1.0/m-select.js"></script>
+	<style>
+		.box {
+			height: 300px;
+			background-color: #f00;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	<span onclick="select()" data-aid="1" data-bid="2" data-cid="3">启动</span>
+
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+
+	<script>
+		var d1 =  function(call) {
+			$.ajax({
+				url: 'http://zhangmin.com/shark/index.php/api/region/index',
+				data: { id: 100000 },
+				success: function(res) {
+					call(res);
+				}
+			})
+		}
+		var d2 =  function(id,call) {
+			$.ajax({
+				url: 'http://zhangmin.com/shark/index.php/api/region/index',
+				data: { id: id },
+				success: function(res) {
+					call(res);
+				}
+			})
+		}
+		var d3 =  function(pid,id,call) {
+			$.ajax({
+				url: 'http://zhangmin.com/shark/index.php/api/region/index',
+				data: { id: id },
+				success: function(res) {
+					call(res);
+				}
+			})
+		}
+
+		var d = [d1,d2,d3];
+
+		function select() {
+			var s = new MSelect(3,d,{
+				relation: [1,1],
+				callback: function(a,b,c) {
+					$('span').html(a.value+','+b.value+','+c.value);
+				}
+			});
+		}
+	</script>
+</body>
+</html>
