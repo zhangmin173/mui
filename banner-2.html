@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>轮播图</title>
+	<script src="js/lib/jquery/1.9.1/jquery.js"></script>
+
+	<link rel="stylesheet" href="js/lib/owlcarousel/2.0/owl.carousel.css">
+	<script src="js/lib/owlcarousel/2.0/owl.carousel.js"></script>
+	<style>
+		body {
+			margin: 0;
+			background-color: #eee;
+		}
+		.owl-controls {
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+			right: 0;
+		}
+		.owl-dots {
+			text-align: center;
+		}
+		.owl-dot {
+			display: inline-block;
+		}
+		.owl-dot span {
+			display: block;
+			width: 8px;
+			height: 8px;
+			margin: 0 5px;
+			border-radius: 50%;
+			background-color: #fff;
+		}
+		.owl-dot.active span {
+			background-color: #f00;
+		}
+	</style>
+</head>
+<body>
+	<div class="owl-carousel">
+		<a class="" href=""><img src="img/banner-1.jpg"></a>
+		<a class="" href=""><img src="img/banner-2.jpg"></a>
+		<a class="" href=""><img src="img/banner-3.jpg"></a>
+	</div>
+
+	<hr>
+
+	<a href="http://www.htmleaf.com/jQuery/Slideshow-Scroller/201502161387.html">使用文档</a>
+	<script>
+	$(".owl-carousel").owlCarousel({
+		items: 1,
+		loop: true,
+	    autoplay: true,
+	    autoplayTimeout: 1500,
+	});
+	</script>
+</body>
+</html>

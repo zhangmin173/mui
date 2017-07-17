@@ -1,0 +1,86 @@
+.webuploader-container {
+	position: relative;
+}
+.webuploader-element-invisible {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	background: #fff;
+	padding: 10px 15px;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	overflow: hidden;
+}
+.webuploader-pick-hover {
+	background: #fff;
+}
+
+.webuploader-pick-disable {
+	opacity: 0.6;
+	pointer-events:none;
+}
+
+// 自定义样式
+.m-upload {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+
+	li {
+		position: relative;
+		display: table-cell;
+		float: left;
+		width: 30%;
+		height: 100px;
+		margin: 5px 1.2%;
+		overflow: hidden;
+		text-align: center;
+		vertical-align: middle;
+		border: 1px solid #eee;
+	}
+
+	.m-upload-img {
+		display: inline-block;
+		width: 100%;
+		vertical-align: middle;
+	}
+
+	.formid {
+		display: inline-block;
+		width: 0;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	.m-upload-del {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: block;
+		width: 26px;
+		height: 26px;
+		line-height: 26px;
+		text-align: center;
+		background-color: #f00;
+		color: #fff;
+	}
+
+	.m-upload-add {
+		font-size: 80px;
+		line-height: 100px;
+		overflow: hidden;
+
+		.webuploader-pick {
+			width: 100%;
+			padding: 0;
+			color: #eee;
+		}
+	}
+}

@@ -4,7 +4,7 @@ if (typeof jQuery == "undefined") {
 +function($) {
     //微信接口总配置
     var jsApiList = ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'downloadVoice', 'chooseImage', 'previewImage', 'uploadImage', 'downloadImage', 'translateVoice', 'getNetworkType', 'openLocation', 'getLocation', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'closeWindow', 'scanQRCode', 'chooseWXPay', 'openProductSpecificView', 'addCard', 'chooseCard', 'openCard'];
-
+    console.log('全局执行');
     // if (_global && _global.jsapi_config) {
     //     var debug = false;
     //     wx.config({
@@ -18,35 +18,29 @@ if (typeof jQuery == "undefined") {
     // }
 
     $.extend({
+        // 初始化
         init: function() {
             this.rem();
         },
+        // 控制根元素大小达到自适应
+        rem: function() {
+            this.resize(function() {
+                var vw = $(window).width();
+                var fs = 10;
+                if (vw > 540) {
+                    vw = 540;
+                }
+                fs *= (vw/320);
+                $('html').css('font-size', fs + 'px');
+            });
+        },
+        // 获取url参数
         getUrlPara: function (name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
             var r = window.location.search.substr(1).match(reg);
             if (r != null) return unescape(r[2]); return null;
         },
-        wxPay: function(para, success, fail) {
-            wx.chooseWXPay({
-                timestamp: para.timeStamp, // 支付签名时间戳
-                nonceStr: para.nonceStr, // 支付签名随机串
-                package: para.package, // 订单详情扩展字符串，详见附录5
-                signType: para.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-                paySign: para.paySign, // 支付签名，详见附录5
-                success: function() {
-                    success();
-                },
-                fail: function() {
-                    fail();
-                },
-                cancel: function() {
-                    fail();
-                },
-                complete: function() {
-
-                }
-            });
-        },
+        // 控制页面显示
         h5Show: function(options) {
             var opts = $.extend({}, {
                 navShow: false,
@@ -70,6 +64,29 @@ if (typeof jQuery == "undefined") {
                 $('#js-footerLink').hide();
             }
         },
+        // 微信支付
+        wxPay: function(para, success, fail) {
+            wx.chooseWXPay({
+                timestamp: para.timeStamp, // 支付签名时间戳
+                nonceStr: para.nonceStr, // 支付签名随机串
+                package: para.package, // 订单详情扩展字符串，详见附录5
+                signType: para.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+                paySign: para.paySign, // 支付签名，详见附录5
+                success: function() {
+                    success();
+                },
+                fail: function() {
+                    fail();
+                },
+                cancel: function() {
+                    fail();
+                },
+                complete: function() {
+
+                }
+            });
+        },
+        // 微信分享
         wxShare: function(data) {
             data = $.extend({
                 title: '', // 分享标题
@@ -96,7 +113,7 @@ if (typeof jQuery == "undefined") {
                         success: data.success,
                         fail: data.fail
                     }
-                    //分享给朋友
+                //分享给朋友
                 wx.onMenuShareAppMessage(
                     $.extend(BaseData, {
                         desc: data.desc,
@@ -138,7 +155,7 @@ if (typeof jQuery == "undefined") {
             }).done(function(res) {
                 call(res);
             }).fail(function() {
-                alert('url:' + 接口报错);
+                alert('本地请求失败');
             });
         },
         // 跨域请求
@@ -148,36 +165,64 @@ if (typeof jQuery == "undefined") {
                 access_token: _global.access_token,
                 site_id: _global.site_info.id,
                 }, data);
+            console.log(datas);
             $.ajax({
                 type: 'post',
-                url: _global.url.api + url,
-                dataType: 'json',
+                url: url,
+                dataType: 'jsonp',
+                jsonp: 'jsonpcalback',
                 data: datas
             }).done(function(res) {
                 call(res);
             }).fail(function() {
-                alert('url:' + 接口报错);
+                alert('跨域请求失败');
             });
         },
-        // 模板引擎
-        render: function(temp,data,call) {
-            laytpl(temp).render(data, function (render) {
-                call(render);
+        // 浏览器尺寸改变函数
+        resize: function(fn) {
+            fn();
+            $(window).on('resize', function() {
+                fn();
             });
         },
-        rem: function() {
-            this.resize(function() {
-                var vw = $(window).width();
-                var fs = 10;
-                if (vw > 540) {
-                    vw = 540;
-                }
-                fs *= (vw/320);
-                $('html').css('font-size', fs + 'px');
-            });
+        // 模板加载
+        render: function(tempid,data,call) {
+            var html = template(tempid,data);
+            call(html);
         },
+        // 打点信息
         log: function(msg) {
             console.log(msg);
+        },
+        // 表单数据转json便于提交
+        form2Json: function(id) {
+            var a = $(id).serializeArray();
+            var d = {};
+            $.each(a, function() {    
+                if (d[this.name]) {    
+                    if (!d[this.name].push) {    
+                        d[this.name] = [d[this.name]];    
+                    }    
+                    d[this.name].push(this.value || '');    
+                } else {    
+                    d[this.name] = this.value || '';    
+                }    
+            });
+            console.log(d);
+            return d;
+        },
+        // 获取下拉框选中值
+        getSelectVal: function(id) {
+            return $(id + ' option:selected').val();
+        },
+        // 获取多选的值
+        getCheckVal: function(name) {
+            var obj = $('input[name="'+name+'"]:checked');
+            var d = [];
+            obj.each(function() {
+                d.push($(this).val());
+            });
+            return d;
         },
         // 常用正则
         regCheck: {
@@ -216,13 +261,6 @@ if (typeof jQuery == "undefined") {
                 return /^\d*\.?\d+$/.test(str);
             }
         },
-        // 浏览器尺寸改变函数
-        resize: function(fn) {
-            fn();
-            $(window).on('resize', function() {
-                fn();
-            });
-        },
         // 格式化字段
         format: {
             mobile: function(phoneNum) {
@@ -232,9 +270,10 @@ if (typeof jQuery == "undefined") {
         // 回到顶部
         toTop: function(options) {
             var opts = $.extend({}, {
-                pdBottom: '10px',
+                bottom: '10px',
+                str: '<a id="toTop" href="javascript:;" style="position:fixed;z-index:999;right:1.5rem;display:block;width:3rem;height:3rem;line-height:3rem;text-align:center;background-color:#f00;color:#fff;">↑</a>',
             }, options);
-
+            console.log('回到顶部');
             $('body').append(opts.str);
             var obj = $('#toTop');
             obj.hide();
@@ -245,7 +284,7 @@ if (typeof jQuery == "undefined") {
                     obj.stop(true).fadeOut();
                 }
             });
-            obj.css({ bottom: opts.pdBottom });
+            obj.css({ bottom: opts.bottom });
             obj.on('click', function() {
                 $('html, body').animate({
                     scrollTop: 0

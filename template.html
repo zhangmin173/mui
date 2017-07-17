@@ -19,7 +19,7 @@
 	        	<li data-id="{{i}}">{{value}}</li>
 	    	{{/each}}
 		</ul>
-		<p>{{content | $imports.substr '3'}}</p>
+		<p>{{content | aa '3'}}</p>
 	</script>
 	<script>
 		var d = {
@@ -27,13 +27,16 @@
 			rows: ['1','2','3','4'],
 			content: '这段文字可以被方法给截取了'
 		};
+		// 方法名不能和已有js方法相同
+		template.defaults.imports.aa = function(value, num) {
+			return value.substr(0,num)+'...';
+		};
 		$(function() {
 			var html = template('tempid',d);
             $('#box').append(html);
 		})
-		template.defaults.imports.subStr = function(value, num) {
-			return value.substr(0,num)+'...';
-		};
+		
+		
 	</script>
 </body>
 </html>
