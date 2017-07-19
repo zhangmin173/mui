@@ -267,15 +267,27 @@ if (typeof jQuery == "undefined") {
                 return phoneNum.substring(0, 3) + "****" + phoneNum.substring(7);
             }
         },
+        // 加载动画
+        loadShow: function() {
+            var str = '<div class="m-loading">'+
+                            '<span></span>'+
+                            '<span></span>'+
+                            '<span></span>'+
+                        '</div>';
+            $('body').append(str);
+        },
+        loadOver: function() {
+            $('.m-loading').remove();
+        },
         // 回到顶部
         toTop: function(options) {
             var opts = $.extend({}, {
-                bottom: '10px',
+                bottom: '6rem',
                 str: '<a id="toTop" href="javascript:;" style="position:fixed;z-index:999;right:1.5rem;display:block;width:3rem;height:3rem;line-height:3rem;text-align:center;background-color:#f00;color:#fff;">↑</a>',
             }, options);
-            console.log('回到顶部');
             $('body').append(opts.str);
             var obj = $('#toTop');
+            obj.css('bottom', opts.bottom);
             obj.hide();
             $(window).on('scroll', function() {
                 if ($(window).scrollTop() >= 200) {

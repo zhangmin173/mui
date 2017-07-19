@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>瀑布流动态布局</title>
+	<script src="js/lib/jquery/1.9.1/jquery.js"></script>
+	<script src="js/lib/m-fall/m-fall.js"></script>
+	<style>
+		.con {
+			position: relative;
+		}
+		.box {
+			position: absolute;
+			border: 1px solid #666;
+		}
+		.box img {
+			width: 100%;
+		}
+		.box p {
+			text-align: center;
+		}
+		.fall-box {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="fall" class="con">
+		<div class="box fall-box">
+			<img class="fall-img" src="img/banner-1.jpg">
+			<p>111</p>
+		</div>
+		<div class="box fall-box">
+			<img class="fall-img" src="img/add.png">
+			<p>2222</p>
+		</div>
+		<div class="box fall-box">
+			<img class="fall-img" src="img/banner-2.jpg">
+			<p>333</p>
+		</div>
+		<div class="box fall-box">
+			<img class="fall-img" src="img/banner-3.jpg">
+			<p>44444</p>
+		</div>
+		<div class="box fall-box">
+			<img class="fall-img" src="img/banner-4.jpg">
+			<p>5555</p>
+		</div>
+		<div class="box fall-box">
+			<img class="fall-img" src="img/test.jpg">
+			<p>6666</p>
+		</div>
+	</div>
+	<script>
+		$(function() {
+			$('#fall').MFall();
+		})
+	</script>
+</body>
+</html>

@@ -10,55 +10,89 @@
 	<link rel="stylesheet" href="js/lib/font-awesome/4.6.3/font-awesome.css">
 	<script src="js/lib/jquery/1.9.1/jquery.js"></script>
 	<script src="js/dev/common.js"></script>
+	<script src="js/lib/headromm/headroom.js"></script>
+	<script src="js/lib/headromm/jquery.headroom.js"></script>
 	<style>
-		body {
-			position: relative;
-		}
+        .headroom {
+            transition: transform 200ms linear;
+        }
+        .headroom--pinned {
+            transform: translateY(0%);
+        }
+        .headroom--unpinned {
+            transform: translateY(-100%);
+        }
 	</style>
 </head>
 <body style="padding-bottom: 10rem;">
-	<header class="m-header">
-		<a class="m-header-left" href="##"><i class="fa fa-angle-left"></i></a>
-		<span class="m-header-title">导航标题</span>
-		<a class="m-header-right" href="##"><i class="fa fa-home"></i></a>
-	</header>
-	<hr>
-	<section class="main">
-		<script id="js-pop-temp" type="text/html">
-			<ul style="padding: 1rem;">
-				<li>1.规则1</li>
-				<li>2.规则2</li>
-			</ul>
-		</script>
-		<br><br>
-		<button class="m-btn bg-default" type="button">按钮</button>
-		<button class="m-btn bg-primary m-btn-lg m-radius" type="button">按钮</button>
+	<!-- 顶部导航 -->
+	<nav id="header" class="m-nav">
+		<a class="m-nav-left" href="##"><i class="fa fa-angle-left"></i></a>
+		<span class="m-nav-title">导航标题</span>
+		<a class="m-nav-right" href="##"><i class="fa fa-home"></i></a>
+	</nav>
+	<script>
+		$(function() {
+			var elem = window.getElementById('header');
+			var headroom = new Headroom(elem, {
+				  "tolerance": 5,
+				  "offset": 205,
+				  "classes": {
+				    "initial": "animated",
+				    "pinned": "slideDown",
+				    "unpinned": "slideUp"
+				  }
+				});
+				headroom.init();
+
+				// to destroy
+				headroom.destroy();
+			// $('.m-nav').headroom({
+			// 	tolerance : {
+			// 		up : 0,
+			// 		down : 0
+			// 	},
+			// 	offset : 0,
+			// 	scroller: window,
+			// 	classes : {
+			// 	pinned : 'headroom--pinned',
+			// 	unpinned : 'headroom--unpinned',
+			// 	top : 'headroom--top',
+			// 	notTop : 'headroom--not-top',
+			// 	bottom : 'headroom--bottom',
+			// 	notBottom : 'headroom--not-bottom',
+			// 	initial : 'headroom'
+			// 	}
+			// });
+		})
+	</script>
+	<!-- 主体内容 -->
+	<div class="container">
+		<div class="row" >
+			<div class="main" style="background-color: #fff;">
+				111
+			</div>
+		</div>
+		<button class="m-btn bg-default" type="button" onclick="$.loadShow()">按钮</button>
+		<button class="m-btn bg-primary m-btn-lg m-radius" type="button" onclick="$.loadOver()">按钮</button>
 		<button class="m-btn bg-warning m-btn-sm m-radius" type="button">按钮</button>
 		<button class="m-btn bg-success" type="button">按钮</button>
 		<button class="m-btn bg-error" type="button">按钮</button>
-		<br><br>
 		<button class="m-btn bg-default outlined m-btn-lg m-radius" type="button">按钮</button>
 		<button class="m-btn bg-primary outlined m-radius" type="button">按钮</button>
 		<button class="m-btn bg-warning outlined" type="button">按钮</button>
 		<button class="m-btn bg-success outlined" type="button">按钮</button>
 		<button class="m-btn bg-error outlined" type="button">按钮</button>
-	</section>
-	<br><br>
-	<section class="main">
 		<label class="m-label bg-default">注意</label>
 		<label class="m-label bg-primary">注意</label>
 		<label class="m-label bg-warning m-radius">注意</label>
 		<label class="m-label bg-success">注意</label>
 		<label class="m-label bg-error">注意</label>
-		<br><br>
 		<label class="m-label bg-default outlined">注意</label>
 		<label class="m-label bg-primary outlined">注意</label>
 		<label class="m-label bg-warning outlined">注意</label>
 		<label class="m-label bg-success outlined">注意</label>
 		<label class="m-label bg-error outlined">注意</label>
-		<br><br>
-	</section>
-	<section class="main">
 		<form class="m-form">
 			<div class="m-form-item">
 				<input class="m-input" name="pwd" type="text" placeholder="请输入..." readonly>
@@ -96,80 +130,107 @@
 				console.log($.getCheckVal('payway'));
 			})
 		</script>
-		<hr>
-		<span class="m-counter">
-			<span class="m-counter-btn">-</span>
-			<input type="text" value="1" readonly>
-			<span class="m-counter-btn">+</span>
-		</span>
-	</section>
-	<div class="m-list">
-		<div class="m-list-item m-row">
-			<div class="m-item-2">
-				图标
+		<div class="m-list">
+			<div class="m-list-item m-row">
+				<div class="m-item-2">
+					图标
+				</div>
+				<div class="m-item-8">
+					我的收藏
+				</div>
+				<div class="m-item-2 tx-r">
+					>>
+				</div>
 			</div>
-			<div class="m-item-8">
-				我的收藏
-			</div>
-			<div class="m-item-2 tx-r">
-				>>
-			</div>
-		</div>
-		<a class="m-list-item m-row" href="##">
-			<div class="m-item-4">
-				商品数量
-			</div>
-			<div class="m-item-8">
-				1
-			</div>
-		</a>
-		<div class="m-list-item m-row">
-			<div class="m-item-4">
-				买家留言
-			</div>
-			<div class="m-item-8">
-				<input class="m-input" type="text" placeholder="请输入哈哈哈">
-			</div>
-		</div>
-	</div>
-	<br><br>
-	<div class="m-list">
-		<div class="m-list-item m-row">
-			<div class="m-item-4 title">
-				支付方式
-			</div>
-			<div class="m-item-6">
-				
-			</div>
-			<div class="m-item-2 tx-r">
-				>>
+			<a class="m-list-item m-row" href="##">
+				<div class="m-item-4">
+					商品数量
+				</div>
+				<div class="m-item-8">
+					<span class="m-counter">
+						<span class="m-counter-btn">-</span>
+						<span class="m-counter-input"><input type="tel" value="1"></span>
+						<span class="m-counter-btn">+</span>
+					</span>
+				</div>
+			</a>
+			<div class="m-list-item m-row">
+				<div class="m-item-4">
+					买家留言
+				</div>
+				<div class="m-item-8">
+					<input class="m-input" type="text" placeholder="请输入哈哈哈">
+				</div>
 			</div>
 		</div>
 		<div class="m-list">
 			<div class="m-list-item m-row">
-				<div class="m-item-2 tx-m">
-					图标
+				<div class="m-item-4 title">
+					支付方式
 				</div>
-				<div class="m-item-8">
-					我的收藏
+				<div class="m-item-6">
+					
 				</div>
 				<div class="m-item-2 tx-r">
 					>>
 				</div>
 			</div>
-			<div class="m-list-item m-row">
-				<div class="m-item-2 tx-m">
-					图标
+			<div class="m-list">
+				<div class="m-list-item m-row">
+					<div class="m-item-2 tx-m">
+						图标
+					</div>
+					<div class="m-item-8">
+						我的收藏
+					</div>
+					<div class="m-item-2 tx-r">
+						>>
+					</div>
 				</div>
-				<div class="m-item-8">
-					我的收藏
-				</div>
-				<div class="m-item-2 tx-r">
-					>>
+				<div class="m-list-item m-row">
+					<div class="m-item-2 tx-m">
+						图标
+					</div>
+					<div class="m-item-8">
+						我的收藏
+					</div>
+					<div class="m-item-2 tx-r">
+						>>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- 版权信息 -->
+	<footer class="m-foot">
+		<p></p>
+	</footer>
+	<!-- 底部菜单 -->
+	<aside class="m-menu fixed-b">
+		<a class="m-menu-item active" href="">
+			<i class="fa fa-home"></i>
+			<p>菜单</p>
+		</a>
+		<a class="m-menu-item" href="">
+			<i class="fa fa-home"></i>
+			<p>菜单</p>
+		</a>
+		<a class="m-menu-item m-menu-super" href="">
+			<div class="m-menu-super-inner">
+				<div class="m-menu-super-bd">
+					<i class="fa fa-home"></i>
+				</div>
+			</div>
+		</a>
+		<a class="m-menu-item" href="">
+			<i class="fa fa-home"></i>
+			<p>菜单</p>
+		</a>
+		<a class="m-menu-item" href="">
+			<i class="fa fa-home"></i>
+			<p>菜单</p>
+		</a>
+	</aside>
 	<script>
 		$.toTop({});
 	</script>
