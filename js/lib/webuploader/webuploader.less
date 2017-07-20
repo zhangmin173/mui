@@ -31,7 +31,6 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	overflow: hidden;
 
 	li {
 		position: relative;
@@ -72,15 +71,20 @@
 		color: #fff;
 	}
 
-	.m-upload-add {
-		font-size: 80px;
-		line-height: 100px;
-		overflow: hidden;
+}
+.m-upload-add {
+	display: inline-block;
+	float: left;
+	width: 30%;
+	height: 100px;
+	margin: 5px 1.2%;
+	font-size: 80px;
+	line-height: 100px;
+	border: 1px solid #eee;
 
-		.webuploader-pick {
-			width: 100%;
-			padding: 0;
-			color: #eee;
-		}
+	.webuploader-pick {
+		width: 100%;
+		padding: 0;
+		color: #eee;
 	}
 }

@@ -10,34 +10,36 @@
 	<script src="js/lib/webuploader/webuploader.js"></script>
 </head>
 <body>
-<ul class="m-upload">
-	<li>
-		<img class="m-upload-img" src="img/banner-1.jpg"><i class="formid"></i>
-		<span class="m-upload-del">X</span>
-	</li>
-	<li>
-		<img class="m-upload-img" src="img/banner-2.jpg"><i class="formid"></i>
-		<span class="m-upload-del">X</span>
-	</li>
-	<li>
-		<img class="m-upload-img" src="img/banner-3.jpg"><i class="formid"></i>
-		<span class="m-upload-del">X</span>
-	</li>
-	<li>
-		<img class="m-upload-img" src="img/test.jpg"><i class="formid"></i>
-		<span class="m-upload-del">X</span>
-	</li>
-	<li id="js-picker" class="m-upload-add">
+<div>
+	<ul class="m-upload" id="js-uploadlist">
+		<li>
+			<img class="m-upload-img" src="img/banner-1.jpg"><i class="formid"></i>
+			<span class="m-upload-del">X</span>
+		</li>
+		<li>
+			<img class="m-upload-img" src="img/banner-2.jpg"><i class="formid"></i>
+			<span class="m-upload-del">X</span>
+		</li>
+		<li>
+			<img class="m-upload-img" src="img/banner-3.jpg"><i class="formid"></i>
+			<span class="m-upload-del">X</span>
+		</li>
+		<li>
+			<img class="m-upload-img" src="img/test.jpg"><i class="formid"></i>
+			<span class="m-upload-del">X</span>
+		</li>
+	</ul>
+	<div class="m-upload-add" id="js-uploadbtn" >
 		+
-	</li>
-</ul>
+	</div>
+</div>
 	<script>
 		$(function() {
 			uploadInit();
 		})
 		// 上传初始化
 		function uploadInit() {
-	        var $list = $("#js-imgm-upload-box"),len = 0, $item = null;
+	        var $list = $("#js-uploadlist"),len = 0, $item = null;
 	        // 上传准备
 	        var uploader = WebUploader.create({
 	            auto: true, //开启自动上传
@@ -47,8 +49,8 @@
 	                app_key: '',
 	            },
 	            swf: 'Uploader.swf',
-	            server: '/api/note/note_image',
-	            pick: '#js-picker',
+	            server: '/upload.php',
+	            pick: '#js-uploadbtn',
 	            // 只允许选择图片文件。
 	            accept: {
 	                title: 'Images',
@@ -63,7 +65,7 @@
 	        });          
 	        // 上传失败 
 	        uploader.on('uploadError', function(file, res) { 
-	            console.log(file);
+	            console.log(res);
 	        });   
 	    }
 	</script>

@@ -1,0 +1,50 @@
+@pd: .6rem;
+.note {
+	display: inline-block;
+	width: 150px;
+	padding: 0 @pd;
+	background-color: @white;
+	border: 1px solid @border;
+	text-decoration: none;
+	color: @black;
+
+	.note-img {
+		width: 100%;
+	}
+
+	.note-title {
+		margin: 1rem 0 @pd;
+		font-size: 1.2rem;
+		line-height: 1.5;
+		font-weight: 800;
+		height: 3.6rem;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+	}
+
+	.note-content {
+		margin: 0 0 @pd;
+		font-size: 1rem;
+		line-height: 1.2;
+		font-weight: 400;
+		height: 2.4rem;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+	}
+
+	.note-nickname {
+		font-size: 1rem;
+
+		img {
+			display: inline-block;
+			width: 1.5rem;
+			height: 1.5rem;
+			border-radius: 50%;
+			vertical-align: middle;
+		}
+	}
+}

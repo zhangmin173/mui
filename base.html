@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="js/lib/font-awesome/4.6.3/font-awesome.css">
 	<script src="js/lib/jquery/1.9.1/jquery.js"></script>
 	<script src="js/dev/common.js"></script>
+
+	<link rel="stylesheet" href="css/demo.css">
 </head>
 <body>
 	<!-- 顶部导航 -->
@@ -24,26 +26,18 @@
 				111
 			</div>
 		</div>
-		<button class="m-btn bg-default" type="button" onclick="$.loadShow()">按钮</button>
-		<button class="m-btn bg-primary m-btn-lg m-radius" type="button" onclick="$.loadOver()">按钮</button>
-		<button class="m-btn bg-warning m-btn-sm m-radius" type="button">按钮</button>
-		<button class="m-btn bg-success" type="button">按钮</button>
-		<button class="m-btn bg-error" type="button">按钮</button>
-		<button class="m-btn bg-default outlined m-btn-lg m-radius" type="button">按钮</button>
-		<button class="m-btn bg-primary outlined m-radius" type="button">按钮</button>
-		<button class="m-btn bg-warning outlined" type="button">按钮</button>
-		<button class="m-btn bg-success outlined" type="button">按钮</button>
-		<button class="m-btn bg-error outlined" type="button">按钮</button>
-		<label class="m-label bg-default">注意</label>
-		<label class="m-label bg-primary">注意</label>
-		<label class="m-label bg-warning m-radius">注意</label>
-		<label class="m-label bg-success">注意</label>
-		<label class="m-label bg-error">注意</label>
-		<label class="m-label bg-default outlined">注意</label>
-		<label class="m-label bg-primary outlined">注意</label>
-		<label class="m-label bg-warning outlined">注意</label>
-		<label class="m-label bg-success outlined">注意</label>
-		<label class="m-label bg-error outlined">注意</label>
+		<button class="m-btn m-btn-default" type="button" onclick="$.loadShow()">按钮</button>
+		<button class="m-btn m-btn-primary m-btn-lg m-btn-radius" type="button" onclick="$.loadOver()">按钮</button>
+		<button class="m-btn m-btn-warning m-btn-sm m-btn-radius" type="button">按钮</button>
+		<button class="m-btn m-btn-default outlined m-btn-lg m-btn-radius" type="button">按钮</button>
+		<button class="m-btn m-btn-primary outlined m-btn-radius" type="button">按钮</button>
+		<button class="m-btn m-btn-warning outlined" type="button">按钮</button>
+		<label class="m-label m-label-default">注意</label>
+		<label class="m-label m-label-primary">注意</label>
+		<label class="m-label m-label-warning m-label-radius">注意</label>
+		<label class="m-label m-label-default outlined">注意</label>
+		<label class="m-label m-label-primary outlined">注意</label>
+		<label class="m-label m-label-warning outlined">注意</label>
 		<form class="m-form">
 			<div class="m-form-item">
 				<input class="m-input" name="pwd" type="text" placeholder="请输入..." readonly>
@@ -70,7 +64,7 @@
 					<label for="2">微信</label>
 				</span>
 			</div>
-			<button id="js-sub" class="m-btn bg-primary" type="button">提交</button>
+			<button id="js-sub" class="m-btn m-btn-primary" type="button">提交</button>
 		</form>
 		<div class="m-list">
 			<div class="m-list-item m-row">
@@ -93,6 +87,21 @@
 						<span class="m-counter-btn">-</span>
 						<span class="m-counter-input"><input type="tel" value="1"></span>
 						<span class="m-counter-btn">+</span>
+					</span>
+				</div>
+			</a>
+			<a class="m-list-item m-row" href="##">
+				<div class="m-item-4">
+					性别
+				</div>
+				<div class="m-item-8">
+					<span class="m-check">
+						<input id="3" type="radio" name="sex" value="zhifubao">
+						<label for="3">男</label>
+					</span>
+					<span class="m-check">
+						<input id="4" type="radio" name="sex" value="wechat">
+						<label for="4">女</label>
 					</span>
 				</div>
 			</a>
@@ -144,8 +153,8 @@
 		</div>
 	</div>
 	<!-- 版权信息 -->
-	<footer id="js-footerLink" class="m-foot">
-		<a class="tx-primary" href="">钻啦网络</a>·提供技术支持
+	<footer id="js-footerLink" class="m-footlink">
+		<a href="">钻啦网络</a>·提供技术支持
 	</footer>
 	<!-- 底部菜单 -->
 	<aside id="js-menu" class="m-menu fixed-b">

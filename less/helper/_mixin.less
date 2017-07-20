@@ -1,0 +1,61 @@
+.scrollable() {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+// Box-shadow
+.box-shadow (@x: 0px, @y: 3px, @z: 0px, @blur: 5px, @alpha: 0.5) {
+    -webkit-box-shadow: @x @y @z @blur rgba(0, 0, 0, @alpha);
+    -moz-box-shadow: @x @y @z @blur rgba(0, 0, 0, @alpha);
+    -o-box-shadow: @x @y @z @blur rgba(0, 0, 0, @alpha);
+    box-shadow: @x @y @z @blur rgba(0, 0, 0, @alpha);
+}
+
+.inner-shadow (@param1, @param2, @param3, @opacity) {
+    -webkit-box-shadow: inset @param1 @param2 @param3 rgba(0, 0, 0, @opacity);
+    -moz-box-shadow: inset @param1 @param2 @param3 rgba(0, 0, 0, @opacity);
+    box-shadow: inset @param1 @param2 @param3 rgba(0, 0, 0, @opacity);
+}
+
+// psis
+.text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -icab-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.m-ellipsis (@multiline){
+    display: -webkit-box !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @multiline;
+
+}
+// Opacity
+.opacity (@opacity) {
+    @opa: (@opacity*100);
+    filter: alpha(opacity=@opa);
+    opacity: @opacity;
+}
+// Placeholder text
+.placeholder (@color: @input-color-placeholder,
+@text-indent: 0) {
+    &::-moz-placeholder {
+        color: @color;
+    }
+
+    &:-ms-input-placeholder {
+        color: @color;
+    }
+
+    &::-webkit-input-placeholder {
+        color: @color;
+        text-indent: @text-indent;
+    }
+}
