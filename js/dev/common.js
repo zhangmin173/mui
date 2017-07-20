@@ -27,9 +27,9 @@ if (typeof jQuery == "undefined") {
             this.resize(function() {
                 var vw = $(window).width();
                 var fs = 10;
-                if (vw > 540) {
-                    vw = 540;
-                }
+                // if (vw > 540) {
+                //     vw = 540;
+                // }
                 fs *= (vw/320);
                 $('html').css('font-size', fs + 'px');
             });
@@ -46,10 +46,49 @@ if (typeof jQuery == "undefined") {
                 navShow: false,
                 menuShow: false,
                 footerLinkShow: false,
+                toTop: false,
             }, options);
 
             if (opts.navShow) {
                 $('#js-nav').show();
+
+                $.getScript('/mui/js/lib/headromm/0.7.0/headroom.js', function(data, textStatus, jqxhr) {
+                    if (textStatus == 'success') {
+                        $.fn.headroom = function(option) {
+                            return this.each(function() {
+                                var $this = $(this),
+                                    data = $this.data('headroom'),
+                                    options = typeof option === 'object' && option;
+
+                                options = $.extend(true, {}, Headroom.options, options);
+
+                                if (!data) {
+                                    data = new Headroom(this, options);
+                                    data.init();
+                                    $this.data('headroom', data);
+                                }
+                                if (typeof option === 'string') {
+                                    data[option]();
+
+                                    if (option === 'destroy') {
+                                        $this.removeData('headroom');
+                                    }
+                                }
+                            });
+                        }
+
+                        // 导航随滚动条滑动显示/隐藏
+                        $("#js-nav").headroom({
+                            "tolerance": 5,
+                            "offset": 50,
+                            "classes": {
+                                "initial": "animated",
+                                "pinned": "slideDown",
+                                "unpinned": "slideUp"
+                            }
+                        });
+                    }
+                });
             } else {
                 $('#js-nav').hide();
             }
@@ -62,6 +101,9 @@ if (typeof jQuery == "undefined") {
                 $('#js-footerLink').show();
             } else {
                 $('#js-footerLink').hide();
+            }
+            if (opts.toTop) {
+                $.toTop({});
             }
         },
         // 微信支付
@@ -303,8 +345,12 @@ if (typeof jQuery == "undefined") {
                 }, 500);
                 return false;
             });
-        },
+        }
     });
+
+    $.fn.extend({
+
+    })
 
     $.init();
 }(jQuery);

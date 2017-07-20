@@ -5,67 +5,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 	<title>test</title>
-	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="js/lib/font-awesome/4.6.3/font-awesome.css">
 	<script src="js/lib/jquery/1.9.1/jquery.js"></script>
 	<script src="js/dev/common.js"></script>
-	<script src="js/lib/headromm/headroom.js"></script>
-	<script src="js/lib/headromm/jquery.headroom.js"></script>
-	<style>
-        .headroom {
-            transition: transform 200ms linear;
-        }
-        .headroom--pinned {
-            transform: translateY(0%);
-        }
-        .headroom--unpinned {
-            transform: translateY(-100%);
-        }
-	</style>
 </head>
-<body style="padding-bottom: 10rem;">
+<body>
 	<!-- 顶部导航 -->
-	<nav id="header" class="m-nav">
+	<nav id="js-nav" class="m-nav">
 		<a class="m-nav-left" href="##"><i class="fa fa-angle-left"></i></a>
 		<span class="m-nav-title">导航标题</span>
 		<a class="m-nav-right" href="##"><i class="fa fa-home"></i></a>
 	</nav>
-	<script>
-		$(function() {
-			var elem = window.getElementById('header');
-			var headroom = new Headroom(elem, {
-				  "tolerance": 5,
-				  "offset": 205,
-				  "classes": {
-				    "initial": "animated",
-				    "pinned": "slideDown",
-				    "unpinned": "slideUp"
-				  }
-				});
-				headroom.init();
-
-				// to destroy
-				headroom.destroy();
-			// $('.m-nav').headroom({
-			// 	tolerance : {
-			// 		up : 0,
-			// 		down : 0
-			// 	},
-			// 	offset : 0,
-			// 	scroller: window,
-			// 	classes : {
-			// 	pinned : 'headroom--pinned',
-			// 	unpinned : 'headroom--unpinned',
-			// 	top : 'headroom--top',
-			// 	notTop : 'headroom--not-top',
-			// 	bottom : 'headroom--bottom',
-			// 	notBottom : 'headroom--not-bottom',
-			// 	initial : 'headroom'
-			// 	}
-			// });
-		})
-	</script>
 	<!-- 主体内容 -->
 	<div class="container">
 		<div class="row" >
@@ -121,15 +72,6 @@
 			</div>
 			<button id="js-sub" class="m-btn bg-primary" type="button">提交</button>
 		</form>
-		<script>
-			$('#js-sub').click(function() {
-				var d = $.form2Json('.m-form');
-				console.log($.getSelectVal('.m-select'));
-			})
-			$('input[name="payway"]').on('change',function() {
-				console.log($.getCheckVal('payway'));
-			})
-		</script>
 		<div class="m-list">
 			<div class="m-list-item m-row">
 				<div class="m-item-2">
@@ -202,11 +144,11 @@
 		</div>
 	</div>
 	<!-- 版权信息 -->
-	<footer class="m-foot">
-		<p></p>
+	<footer id="js-footerLink" class="m-foot">
+		<a class="tx-primary" href="">钻啦网络</a>·提供技术支持
 	</footer>
 	<!-- 底部菜单 -->
-	<aside class="m-menu fixed-b">
+	<aside id="js-menu" class="m-menu fixed-b">
 		<a class="m-menu-item active" href="">
 			<i class="fa fa-home"></i>
 			<p>菜单</p>
@@ -232,7 +174,15 @@
 		</a>
 	</aside>
 	<script>
-		$.toTop({});
+		$(function() {
+
+			$.h5Show({
+				navShow: true,
+                menuShow: true,
+                footerLinkShow: true,
+                toTop: false,
+			})
+		})
 	</script>
 </body>
 </html>

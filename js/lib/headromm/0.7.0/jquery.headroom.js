@@ -1,12 +1,10 @@
+/*!
+ * headroom.js v0.7.0 - Give your page some headroom. Hide your header until you need it
+ * Copyright (c) 2014 Nick Williams - http://wicky.nillia.ms/headroom.js
+ * License: MIT
+ */
+
 (function($) {
-
-  if(!$) {
-    return;
-  }
-
-  ////////////
-  // Plugin //
-  ////////////
 
   $.fn.headroom = function(option) {
     return this.each(function() {
@@ -23,21 +21,8 @@
       }
       if (typeof option === 'string') {
         data[option]();
-
-        if(option === 'destroy'){
-          $this.removeData('headroom');
-        }
       }
     });
   };
-
-  //////////////
-  // Data API //
-  //////////////
-
-  $('[data-headroom]').each(function() {
-    var $this = $(this);
-    $this.headroom($this.data());
-  });
 
 }(window.Zepto || window.jQuery));
