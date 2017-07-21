@@ -17,17 +17,18 @@
             page: false, //分页形式
             pageSize: 10,//分页大小
             pageIndex: 1,//当前页码
+            total: 0, // 数据量
             isOver: false, // 是否已经结束
             isOneShow: true,///是否第一次执行
-            initNoData: '暂无相关信息',//第一次没有数据的时候
-            noData: '已经没有更多数据了!',//没有数据时显示的内容
+            initNoData: '',//第一次没有数据的时候
+            noData: '',//没有数据时显示的内容
             queryParams: function () {//额外查询参数
                 return {}
             },
             onLoadSuccess: function (data) { //数据加载成功触发
 
             },
-            onBeforeLoad: function (data) {//数据加载前触发
+            onBeforeLoad: function () {//数据加载前触发
 
             }
         }
@@ -64,6 +65,8 @@
                 data.limit = opts.pageSize;
             }
 
+            opts.onBeforeLoad();
+
             $.ajax({
                 url: opts.url,
                 type: 'get',
@@ -72,28 +75,49 @@
             })
             .done(function(res) {
                 console.log(res);
-                if (res.rows.length > 0) {
 
-                    if (opts.pageIndex == 1) {
-                        opts.isOneShow = false;
-                    }
+                if (res.total) {
+                   opts.total = res.total; 
+                }
 
-                    opts.pageIndex ++;
+                if (opts.pageIndex == 2) {
+                    opts.isOneShow = false;
+                }
 
-                    opts.onBeforeLoad(res);
+                if (opts.page) {
+                    if (opts.total >= opts.pageIndex*opts.pageSize) {
+                        opts.pageIndex ++;
+                       
+                        var html = template(opts.model,res);
+                        _this.append(html);
 
-                    var html = template(opts.model,res);
-                    _this.append(html);
-
-                    opts.onLoadSuccess(res);
-                } else {
-                    opts.isOver = true;
-                    if (opts.isOneShow) {
-                        _this.append(opts.initNoData);
+                        opts.onLoadSuccess(res);
                     } else {
-                        _this.append(opts.noData);
+                        opts.isOver = true;
+                        if (opts.isOneShow) {
+                            _this.append(opts.initNoData);
+                        } else {
+                            _this.append(opts.noData);
+                        }
+                    }
+                } else {
+                    if (res.data && res.data.length) {
+                        opts.pageIndex ++;
+
+                        var html = template(opts.model,res);
+                        _this.append(html);
+
+                        opts.onLoadSuccess(res);
+                    } else {
+                        opts.isOver = true;
+                        if (opts.isOneShow) {
+                            _this.append(opts.initNoData);
+                        } else {
+                            _this.append(opts.noData);
+                        }
                     }
                 }
+                
             })
             .fail(function() {
                 console.log("error");

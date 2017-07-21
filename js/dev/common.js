@@ -27,9 +27,9 @@ if (typeof jQuery == "undefined") {
             this.resize(function() {
                 var vw = $(window).width();
                 var fs = 10;
-                // if (vw > 540) {
-                //     vw = 540;
-                // }
+                if (vw > 540) {
+                    vw = 540;
+                }
                 fs *= (vw/320);
                 $('html').css('font-size', fs + 'px');
             });

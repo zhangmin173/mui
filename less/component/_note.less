@@ -1,13 +1,19 @@
 @pd: .6rem;
+.note-box {
+	position: relative;
+}
 .note {
+	position: absolute;
 	display: inline-block;
-	width: 150px;
-	padding: 0 @pd;
 	background-color: @white;
 	border: 1px solid @border;
 	text-decoration: none;
 	color: @black;
 
+	.note-bd {
+		position: relative;
+		padding: 0 @pd;
+	}
 	.note-img {
 		width: 100%;
 	}
@@ -15,9 +21,8 @@
 	.note-title {
 		margin: 1rem 0 @pd;
 		font-size: 1.2rem;
-		line-height: 1.5;
+		line-height: 1.25;
 		font-weight: 800;
-		height: 3.6rem;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 2;
@@ -27,9 +32,8 @@
 	.note-content {
 		margin: 0 0 @pd;
 		font-size: 1rem;
-		line-height: 1.2;
+		line-height: 1.25;
 		font-weight: 400;
-		height: 2.4rem;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 2;
@@ -38,13 +42,43 @@
 
 	.note-nickname {
 		font-size: 1rem;
+		margin: 2.5rem 0 0;
+		padding-right: 4rem;
+		.m-ellipsis(1);
 
 		img {
 			display: inline-block;
 			width: 1.5rem;
 			height: 1.5rem;
+			margin-right: .5rem;
 			border-radius: 50%;
-			vertical-align: middle;
+			vertical-align: bottom;
 		}
 	}
+
+	.note-address {
+		font-size: 1rem;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		overflow: hidden;
+
+		i {
+			margin-right: .5rem;
+		}
+	}
+
+	.note-likes {
+		position: absolute;
+		right: @pd;
+		bottom: 1.2rem;
+		font-size: 1rem;
+
+		i {
+			margin-right: .2rem;
+		}
+	}
+}
+.fall-box {
+	opacity: 0;
 }
