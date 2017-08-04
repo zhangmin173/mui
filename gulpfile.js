@@ -24,51 +24,48 @@ gulp.task('less', function() {
         .pipe(gulp.dest('css/'));
 });
 
-// 压缩ljs
+// 压缩js
 gulp.task('js', function() {
-    return gulp.src('js/dev/*.js')
+    return gulp.src(['js/*.js','!js/*.min.js'])
         .pipe(plumber())
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('js/wx/'));
+        .pipe(gulp.dest('js/'));
 });
 
-// 编译lib下的所有less并压缩
+// 编译lib下的所有less并压缩输出css
 gulp.task('less-lib', function() {
-    return gulp.src('js/lib/**/*.less')
+    return gulp.src('lib/**/*.less')
         .pipe(less())
         .pipe(plumber())
         .pipe(autoprefix())
         .pipe(cssmin())
-        .pipe(gulp.dest('js/lib/'));
+        .pipe(gulp.dest('lib/'));
 });
 
 // 压缩lib下的所有js
 gulp.task('js-lib', function() {
-    return gulp.src(['js/lib/**/*.js',,'!js/lib/**/*.min.js'])
+    return gulp.src(['lib/**/*.js','!lib/**/*.min.js'])
         .pipe(plumber())
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('js/lib/'));
+        .pipe(gulp.dest('lib/'));
 });
 
 // 开启监控，当这些文件变化时自动执行任务
 gulp.task('watch', function() {
     gulp.watch('less/**/*.less', ['less']);
-    gulp.watch('less/*.less', ['less']);
-    gulp.watch('js/lib/**/*.less', ['less-lib']);
+    // gulp.watch('js/*.js', ['js']);
+    // gulp.watch('lib/**/*.less', ['less-lib']);
+    // gulp.watch('lib/**/*.js', ['js-lib']);
 });
 
-// gulp默认执行的任务，第二个数组的任务在你当前任务运行之前完成
-gulp.task('dev',['less','less-lib'], function() {
-
-});
-
+// 编译lib
 gulp.task('lib',['less-lib','js-lib'], function() {
 
 });
 
-// gulp默认执行的任务，第二个数组的任务在你当前任务运行之前完成
+// 默认执行所有任务
 gulp.task('default',['less','js','less-lib','js-lib'], function() {
 
 });

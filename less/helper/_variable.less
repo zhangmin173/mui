@@ -1,16 +1,52 @@
-/* 变量 */
-@primary: #2c9d71; // 主色
-@default: #49dfa5; // 副色
-@white: #fff; // 白色
-@lightWhite: #f2f2f2; // 灰色
+// 黑色系
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
-@warning: #e73348; // 高亮颜色
-@black: #333; // 黑
-@lightBlack: #666; // 浅黑
-@gray: #d4d4d4; // 灰
-@lightGray: #999; // 亮灰
+// 主色系
+@primary:         		 #4A89DC;
+@success:         		 #8CC152;
+@info:            		 #3BAFDA;
+@warning:         		 #F6BB42;
+@danger:          		 #E9573F;
 
-@border: #eee; // 线
+// 字体
+@font-family-base:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 
+@font-size-base:          .7rem;
+@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
-@padding: 1.0rem;
+@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
+
+@line-height-base:        1.428571429; // 20/14
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
+
+@headings-font-family:    inherit;
+@headings-font-weight:    500;
+@headings-line-height:    1.1;
+@headings-color:          @gray-dark;
+@headings-small-color:    lighten(@gray,2.5%);
+
+// 通用参数
+@body-bg:               #fff; // 全局字体颜色
+@text-color:            @gray;  // 全局字体颜色
+@grid-columns:          12; // 栅格数
+@border-color:          @gray-lighter; // 边框颜色
+
+// 按钮
+@btn-tx-default:         @gray;
+@btn-bg-default:         @gray;
+@btn-border-default:     @gray-lighter;
+
+@btn-tx-primary:         #fff;
+@btn-bg-primary:         @primary;
+@btn-border-primary:     @primary;

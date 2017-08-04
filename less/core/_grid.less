@@ -1,0 +1,140 @@
+.container {
+    min-width: 300px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+.row {
+    letter-spacing: -0.31em;
+    text-rendering: optimizespeed;
+    font-family: @font-family-base;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  table .row {
+    display: block;
+  }
+}
+
+.opera-only :-o-prefocus,
+.row {
+    word-spacing: -0.43em;
+}
+
+.row [class *= "col"] {
+    font-family: sans-serif;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+    display: inline-block;
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+.col-1 {
+    width: percentage(1/@grid-columns);
+}
+
+.col-2 {
+     width: percentage(2/@grid-columns);
+}
+
+.col-3 {
+     width: percentage(3/@grid-columns);
+}
+
+.col-4 {
+     width: percentage(4/@grid-columns);
+}
+
+.col-5 {
+     width: percentage(5/@grid-columns);
+}
+
+.col-6 {
+     width: percentage(6/@grid-columns);
+}
+
+.col-7 {
+     width: percentage(7/@grid-columns);
+}
+
+.col-8 {
+     width: percentage(8/@grid-columns);
+}
+
+.col-9 {
+     width: percentage(9/@grid-columns);
+}
+
+.col-10 {
+     width: percentage(10/@grid-columns);
+}
+
+.col-11 {
+     width: percentage(11/@grid-columns);
+}
+
+.col-12 {
+    width: percentage(12/@grid-columns);
+}
+
+.g {
+    display: flex;
+}
+
+.g-item {
+    flex: auto;
+}
+.g-1 {
+    flex: 1;
+}
+.g-2 {
+    flex: 2;
+}
+.g-3 {
+    flex: 3;
+}
+.g-4 {
+    flex: 4;
+}
+.g-5 {
+    flex: 5;
+}
+.g-6 {
+    flex: 6;
+}
+.g-7 {
+    flex: 7;
+}
+.g-8 {
+    flex: 8;
+}
+.g-9 {
+    flex: 9;
+}
+.g-10 {
+    flex: 10;
+}
+.g-11 {
+    flex: 11;
+}
+.g-12 {
+    flex: 12;
+}

@@ -21,13 +21,8 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "商城插件",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zhangmin173/mui.git"
-  },
-  "bugs": {
-    "url": "https://github.com/zhangmin173/mui/issues"
-  },
-  "homepage": "https://github.com/zhangmin173/mui#readme"
+  "description": "客服聊天",
+  "directories": {
+    "lib": "lib"
+  }
 }

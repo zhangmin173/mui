@@ -1,0 +1,105 @@
+.btn {
+    font-size: .7rem;
+    font-weight: 400;
+    line-height: 1rem;
+    display: inline-block;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    padding: .2rem .5rem;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: .05rem solid transparent;
+    background-color: transparent;
+
+    &.btn-block {
+        display: block;
+        width: 100%;
+    }
+
+    &.btn-radius {
+        border-radius: .2rem;
+    }
+
+
+    &.btn-sm {
+        font-size: .6rem;
+        line-height: .9rem;
+        min-width: 1.2rem;
+        height: 1.2rem;
+        padding: .1rem .5rem;
+
+        &.btn-radius {
+            border-radius: .1rem;
+        }
+    }
+
+    &.btn-lg {
+        font-size: .9rem;
+        line-height: 1.2rem;
+        min-width: 2rem;
+        height: 2rem;
+        padding: .35rem .5rem;
+
+        &.btn-radius {
+            border-radius: .4rem;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &.btn-outlined {
+        background-color: transparent;
+    }
+}
+
+.btn-default {
+    color: @btn-tx-default;
+    border-color: @btn-border-default;
+    background-color: @btn-bg-default;
+
+    &:focus {
+        background-color: darken(@btn-bg-default,10%);
+    }
+
+    &.btn-outlined:focus {
+        color: darken(@btn-tx-default,10%);
+        border-color: darken(@btn-border-default,10%);
+        background-color: transparent;
+    }
+
+    &[disabled],&.btn-disabled {
+        color: darken(@btn-tx-default,5%);
+        pointer-events: none;
+    }
+}
+
+.btn-primary {
+    color: @btn-tx-primary;
+    border-color: @btn-border-primary;
+    background-color: @btn-bg-primary;
+
+    &:focus {
+        background-color: darken(@btn-bg-primary,10%);
+    }
+
+    &.btn-outlined {
+        color: @btn-tx-primary;
+    }
+
+    &.btn-outlined:focus {
+        color: darken(@btn-tx-primary,10%);
+        border-color: darken(@btn-border-primary,10%);
+        background-color: transparent;
+    }
+
+    &[disabled],&.btn-disabled {
+        border-color: lighten(@btn-border-primary,5%);
+        background-color: lighten(@btn-bg-primary,5%);
+        pointer-events: none;
+    }
+}

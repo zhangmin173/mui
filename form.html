@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>pui</title>
+	<link rel="stylesheet" href="css/global.css">
+	<script src="lib/jquery/1.9.1/jquery.min.js"></script>
+	<style>
+		.box {
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form class="box">
+			<div class="control error">
+				<label>姓名：</label>
+				<input class="input" type="text" placeholder="请输入username">
+				<p class="help-text">中文字符</p>
+			</div>
+			<div class="control">
+				<label>姓名：</label>
+				<input class="input" type="text" placeholder="请输入username">
+				<p class="help-text">中文字符</p>
+			</div>
+			<div class="control">
+				<label>性别：</label>
+				<div class="select">
+					<select>
+						<option>1</option>
+						<option>2</option>
+					</select>
+				</div>
+				<p class="help-text">中文字符</p>
+			</div>
+			<div class="control">
+				<label>我想说：</label>
+				<textarea class="textarea" placeholder="请输入username"></textarea>
+				<p class="help-text">中文字符</p>
+			</div>
+			<div class="control">
+				<label>支付方式：</label>
+				<div class="radio">
+					<input type="radio" name="payment">
+					<label for="payment">微信</label>
+				</div>
+				<div class="radio">
+					<input type="radio" name="payment">
+					<label for="payment">微信</label>
+				</div>
+				<p class="help-text">中文字符</p>
+			</div>
+			<div class="control">
+				<label>送货方式：</label>
+				<div class="checkbox">
+					<input type="checkbox" name="shiping">
+					<label for="payment">快递</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" name="shiping">
+					<label for="payment">包邮</label>
+				</div>
+				<p class="help-text">中文字符</p>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
