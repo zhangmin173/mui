@@ -1,0 +1,41 @@
+.list {
+	padding: @list-guter;
+
+	&>.item {
+		position: relative;
+		display: flex;
+		padding: .5rem .25rem;
+		text-decoration: none;
+		color: @list-tx-color;
+		border-bottom: .05rem solid @list-border-color;
+
+		.item-left {
+			min-width: .7rem;
+			margin-right: .5rem;
+
+			&>img {
+				display: inline-block;
+				width: .6rem;
+				height: .6rem;
+			}
+		}
+
+		.item-title {
+			flex: 1;
+		}
+
+		.item-right {
+
+			&>span {
+				display: inline-block;
+				padding: 0 .15rem;
+				background-color: @primary;
+				color: #fff;
+				border-radius: .1rem;
+			}
+			&>i{
+				margin-left: .25rem;
+			}
+		}
+	}
+}

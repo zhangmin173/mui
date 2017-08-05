@@ -6,47 +6,35 @@ function Index() {
 }
 
 Index.prototype = {
-    api: 'ws://120.27.196.220:8686', //
-    id: null, // 当前线程id
-    userListBox: null,
     init: function() {
         var _this = this;
 
-        _this.userListBox = $('#js-sidebar dl');
+        $.h5show({
+            navShow: true,
+            menuShow: true,
+        })
+
+        $.loading();
+        window.setTimeout(function(){
+            $.loading();
+        },2000);
 
         _this.render();
-        //_this.scrollInit('#j-scroll');
-        //_this.msgConInit();
     },
     render: function(res) {
         var _this = this;
 
+        var load = new MobileLoad({});
+        load.on('uploadSuccess', function() {
+            console.log(1);
+        });
         _this.handle();
 
     },
     handle: function(res) {
         var _this = this;
 
-        $('#j-sidebar').on('click','dt',function() {
-            $(this).addClass('active').siblings('dt').removeClass('active');
-            $(this).find('.tip').removeClass('active');
-            $('#j-sidebar').find('.headimg').removeClass('ani-scale');
-            $(this).find('.headimg').addClass('ani-scale');
 
-            if ($(this).hasClass('loaded')) {
-                // 没有加载过
-                
-            } else {
-                // 已经加载过
-            }
-        })
-        // var sideBar = new IScroll('#j-sidebar', {
-        //  probeType: 3
-        // });
-
-        //sideBar.refresh();
-        
-        _this.uploadInit();
     },
     uploadInit: function() {
         var _this = this;
@@ -76,15 +64,15 @@ Index.prototype = {
         // 结束上传
         uploader.on('uploadFinished', function(file) {
             //$.loadOver();
-        });                
-        // 上传成功 
+        });
+        // 上传成功
         uploader.on('uploadSuccess', function(file, res) {
             console.log(res);
-        });          
-        // 上传失败 
-        uploader.on('uploadError', function(file, res) { 
+        });
+        // 上传失败
+        uploader.on('uploadError', function(file, res) {
             console.log(res);
-        });    
+        });
     },
     msgConInit: function() {
         var h = $(window).height() - $('.dialog_hd').height()-150;
@@ -102,7 +90,7 @@ Index.prototype = {
         // });
 
         // _this.scrollObj.on('scrollStart',function() {
-            
+
         // });
         // _this.scrollObj.on('scrollEnd',function() {
         //     if (_this.scrollObj.directionY > 0) {
@@ -133,7 +121,7 @@ Index.prototype = {
         websocket.onerror = function (evt) {
         //产生异常
         console.log('连接异常');
-        }; 
+        };
 
         $("#sendmsg").on('click',function(){
             var str = $("#test").val();
