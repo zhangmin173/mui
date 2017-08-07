@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>pui</title>
+	<link rel="stylesheet" href="css/global.css">
+	<script src="lib/jquery/1.9.1/jquery.min.js"></script>
+	<script src="lib/headroom/0.7.0/headroom.js"></script>
+	<script src="lib/template/template.min.js"></script>
+	<script src="js/global.js"></script>
+
+	<link rel="stylesheet" href="lib/m-tab/1.0/m-tab.css">
+	<script src="lib/m-tab/1.0/m-tab.js"></script>
+	<style>
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="j-tab" class="m-tab">
+			<ul>
+				<li class="cur">发布·<span class="num">0</span></li>
+				<li>收藏·<span class="num">0</span></li>
+			</ul>
+		</div>
+		<div id="j-card" class="m-card">
+			<div></div>
+			<div style="display: none;"></div>
+		</div>
+	</div>
+	<script>
+		var d1 = function() {
+			$.ajax({
+                url: 'http://192.168.31.235/tp5/api/region/index',
+                data: {},
+                method: 'post',
+                dataType: 'json',
+                success: function(res) {
+                	console.log(res);
+                }
+            })
+		},
+			d2 = '456';
+
+		$('#j-tab').tab({
+			cardId: 'j-card',
+			data: [d1,d2]
+		})
+	</script>
+</body>
+</html>

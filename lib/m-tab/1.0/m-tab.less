@@ -1,5 +1,6 @@
 /* 变量 */
-@primary: #003366;
+@primary: #2c9d71; // 主色
+@default: #49dfa5; // 副色
 .m-tab {
 	overflow-x: scroll;
 	margin-bottom: 10px;
@@ -29,5 +30,8 @@
 }
 .m-card {
 	padding: 10px;
-	background-color: #fff;
+
+	& > div {
+		position: relative;
+	}
 }

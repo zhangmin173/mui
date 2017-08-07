@@ -1,9 +1,18 @@
-/* 变量 */
-@default: #999;
-@primary: #003366;
-@warning: #f1a325;
-@success: #38b03f;
-@error: #ea644a;
+// 黑色系
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+// 主色系
+@primary:         		 #4A89DC;
+@success:         		 #8CC152;
+@info:            		 #3BAFDA;
+@warning:         		 #F6BB42;
+@danger:          		 #E9573F;
+
 .m-pop {
 	//display: none;
 
@@ -14,7 +23,7 @@
 		width: 100%; 
 		height: 100%; 
 		background-color: rgba(0, 0, 0, 0.4);
-		z-index: 1000;
+		z-index: 9999;
 	}
 
 	.m-pop-box {
@@ -22,18 +31,18 @@
 		top: 50%; 
 		left: 50%; 
 		transform: translate(-50%,-50%);
-		z-index: 2000; 
+		z-index: 9999; 
 		width: 85%; 
 		max-width: 600px; 
 		background-color: #fff;
-		border-radius: 5px;
+		border-radius: .25rem;
 
 		.m-pop-msg {
-			color: #666;
+			color: @gray;
 		}
 
 		&.m-pop-tip {
-			background-color: #000;
+			background-color: @gray-base;
 
 			.m-pop-msg {
 				color: #fff;
@@ -61,15 +70,15 @@
 	}
 
 	.m-pop-title {
-		padding: 10px 0;
-		font-size: 14px;
+		padding: .5rem 0;
+		font-size: .7rem;
 		font-weight: 600;
 		text-align: center;
-		color: #000;
+		color: @gray-base;
 	}
 	.m-pop-msg {
-		padding: 10px;
-		font-size: 16px;
+		padding: .5rem;
+		font-size: .7rem;
 	}
 	.m-pop-btns {
 		display: flex;
@@ -77,8 +86,8 @@
 		align-items: stretch;
 		align-content: stretch;
 		flex: auto;
-		padding: 10px 0;
-		border-top: 1px solid #eee;
+		padding: .5rem 0;
+		border-top: .05rem solid @gray-lighter;
 
 		.m-pop-btn-box {
 			flex: auto;
@@ -87,12 +96,12 @@
 
 		button {
 			display: none;
-			padding: 5px 10px;
-			font-size: 12px;
+			padding: .25rem .5rem;
+			font-size: .7rem;
 			font-weight: normal;
 			line-height: 1.0em;
 			text-align: center;
-			color: #666;
+			color: @gray;
 			white-space: nowrap;
 			vertical-align: middle;
 			touch-action: manipulation;

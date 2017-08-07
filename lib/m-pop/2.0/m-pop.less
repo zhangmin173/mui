@@ -1,0 +1,155 @@
+// 黑色系
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+// 主色系
+@primary:         		 #4A89DC;
+@success:         		 #8CC152;
+@info:            		 #3BAFDA;
+@warning:         		 #F6BB42;
+@danger:          		 #E9573F;
+
+.m-pop {
+	//display: none;
+
+	.m-pop-overlay {
+		position: fixed;
+		left: 0; 
+		top: 0; 
+		width: 100%; 
+		height: 100%; 
+		background-color: rgba(0, 0, 0, 0.3);
+		z-index: 9999;
+	}
+
+	.m-pop-box {
+		position: fixed;
+		top: 50%; 
+		left: 50%; 
+		transform: translate(-50%,-50%);
+		z-index: 9999; 
+		width: 85%; 
+		max-width: 600px; 
+		background-color: #fff;
+		border-radius: .15rem;
+
+	}
+
+	.pop-hd {
+		padding-left: .5rem;
+		padding-right: .5rem;
+		height: 45px;
+		line-height: 45px;
+		font-size: .6rem;
+		font-weight: 600;
+		color: @gray;
+		background-color: @gray-lighter;
+
+		.pop-close {
+			font-size: 1.0rem;
+			color: @gray-base;
+			float: right;
+		}
+	}
+
+	.pop-bd {
+		padding: .5rem;
+	}
+
+	.pop-btns {
+		padding: .5rem;
+		overflow: hidden;
+
+		.pop-btn {
+			float: right;
+			margin-left: .5rem;
+			font-size: .7rem;
+		    font-weight: 400;
+		    line-height: 1rem;
+		    display: inline-block;
+		    min-width: 1.5rem;
+		    height: 1.5rem;
+		    padding: .2rem .5rem;
+		    cursor: pointer;
+		    user-select: none;
+		    text-align: center;
+		    vertical-align: middle;
+		    white-space: nowrap;
+		    border: .05rem solid transparent;
+		    background-color: transparent;
+			border-radius: .2rem;
+
+			&:focus {
+		        outline: none;
+		    }
+
+			&:nth-child(1) {
+				color: #fff;
+			    border-color: @primary;
+			    background-color: @primary;
+
+			    &:focus {
+			        background-color: darken(@primary,10%);
+			    }
+			}
+
+			&:nth-child(2) {
+				color: @gray;
+			    border-color: @gray-lighter;
+			    background-color: @gray-lighter; 
+
+			    &:focus {
+			        background-color: darken(@gray-lighter,10%);
+			    }
+			}
+
+			&:nth-child(3) {
+				color: @primary;
+			    border-color: @primary;
+
+			}
+		}
+	}
+
+	.pop-show-close {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%,0);
+		bottom: -1.8rem;
+		display: block;
+		width: 1.2rem;
+		height: 1.2rem;
+		line-height: 1.2rem;
+		font-size: 1.2rem;
+		font-weight: 400;
+		text-align: center;
+		color: #fff;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		-webkit-tap-highlight-color: transparent;
+	}
+	
+}
+
+.m-tip {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	padding-left: .5rem;
+	padding-right: .5rem;
+	height: 45px;
+	line-height: 45px;
+	font-size: .6rem;
+	font-weight: 600;
+	color: #fff;
+	background-color: @primary;
+
+	.tip-close {
+		font-size: 1.0rem;
+		float: right;
+	}
+}

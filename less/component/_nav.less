@@ -86,3 +86,33 @@
 		color: @menu-active-tx-primary;
 	}
 }
+
+// nav动画
+.nav-animated {
+	animation-duration: .5s;
+	animation-fill-mode: both
+}
+@keyframes navSlideDown {
+	0% {
+		transform: translateY(-100%)
+	}
+
+	100% {
+		transform: translateY(0)
+	}
+}
+.nav-animated.nav-slideDown {
+	animation-name: navSlideDown
+}
+@keyframes navSlideUp {
+	0% {
+		transform: translateY(0)
+	}
+
+	100% {
+		transform: translateY(-100%)
+	}
+}
+.nav-animated.nav-slideUp {
+	animation-name: navSlideUp
+}

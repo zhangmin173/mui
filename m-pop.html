@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>pui</title>
+	<link rel="stylesheet" href="css/global.css">
+	<script src="lib/jquery/1.9.1/jquery.min.js"></script>
+	<script src="lib/headroom/0.7.0/headroom.js"></script>
+	<script src="lib/template/template.min.js"></script>
+	<script src="js/global.js"></script>
+
+	<link rel="stylesheet" href="lib/m-pop/2.0/m-pop.css">
+	<script src="lib/m-pop/2.0/m-pop.js"></script>
+	<style>
+
+	</style>
+</head>
+<body>
+	<div id="j-con" class="container">
+		<button onclick="a()">按钮</button><br><br>
+		<button onclick="b()">按钮</button><br><br>
+		<button onclick="c()">按钮</button><br><br>
+	</div>
+	<script>
+		function a(){
+			$.pop({
+				title: '确认提醒',
+				msg: '确定要删除这个吗',
+				btns: ['确认','取消'],
+			},function() {
+              $.tip('删除成功');
+			},function() {
+				console.log('取消')
+			});
+		}
+
+		function b(){
+			$.tip('删除成功');
+		}
+
+		function c(){
+			$.show('j-con');
+		}
+	</script>
+</body>
+</html>

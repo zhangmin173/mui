@@ -14,20 +14,33 @@ Index.prototype = {
             menuShow: true,
         })
 
-        $.loading();
-        window.setTimeout(function(){
-            $.loading();
-        },2000);
-
         _this.render();
     },
     render: function(res) {
         var _this = this;
 
-        var load = new MobileLoad({});
-        load.on('uploadSuccess', function() {
-            console.log(1);
-        });
+        //var iscroll = new IScroll('#j-con');
+
+        $('#j-con').MobileLoad({
+            url: 'http://192.168.31.235/tp5/api/region/index',
+            isLoading: true,
+            model: 'tpl-main',
+            initNoData: '<div style="height: 160px;">没数据</div>',
+            noData: '<div style="height: 160px;">最后</div>',
+            queryParams: function () {
+                return { parent_id: 10000 }
+            }
+        })
+
+        $.html2img('#j-con',function(url) {
+            var s = '<img src="'+url+'">';
+            $('#j-con').html(s);
+        })
+
+        $('#j-reset').on('click',function() {
+            $('#j-con').MobileLoad('reLoad');
+        })
+
         _this.handle();
 
     },
@@ -74,11 +87,6 @@ Index.prototype = {
             console.log(res);
         });
     },
-    msgConInit: function() {
-        var h = $(window).height() - $('.dialog_hd').height()-150;
-        console.log(h);
-        $('.dialog-bd').height(h);
-    },
     scrollObj: null,
     scrollInit: function(id) {
         var _this = this;
@@ -100,34 +108,6 @@ Index.prototype = {
         //     }
         // });
     },
-    webSokect: function() {
-        var wsServer = 'ws://120.27.196.220:8686'; //服务器地址
-        var websocket = new WebSocket(wsServer); //创建WebSocket对象
-
-        console.log(websocket.readyState);//查看websocket当前状态
-        websocket.onopen = function (evt) {
-        //已经建立连接
-        console.log('与服务端连接建立');
-        };
-        websocket.onclose = function (evt) {
-        //已经关闭连接
-        console.log('与服务端连接关闭');
-        };
-        websocket.onmessage = function (evt) {
-        //收到服务器消息，使用evt.data提取
-        $("#show").append("<p>"+evt.data+"</p>");
-        console.log("^_^："+evt.data);
-        };
-        websocket.onerror = function (evt) {
-        //产生异常
-        console.log('连接异常');
-        };
-
-        $("#sendmsg").on('click',function(){
-            var str = $("#test").val();
-            websocket.send(str);
-        })
-    }
 };
 
 $(function() {
