@@ -1,0 +1,50 @@
+// 变量 函数
+@import url('helper/_variable.less');
+
+@bg: lighten(@primary,20%);
+@input-bg: lighten(@primary,10%);
+
+.container {
+	position: relative;
+	background-color: @bg;
+	padding: 2rem;
+}
+.headimg {
+	display: block;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+.nickname {
+	margin: .5rem 0;
+	font-size: .8rem;
+	text-align: center;
+}
+.login-form {
+	padding-top: 1.5rem;
+}
+.control {
+
+	.input {
+
+
+		&::-webkit-input-placeholder {
+			color: #b4b4b4;
+		}
+	}
+
+	.input:focus {
+        border-color: transparent;
+    }
+}
+.login-ft {
+	position: absolute;
+	left: 2rem;
+	right: 2rem;
+	bottom: 1rem;
+
+	a {
+		color: #fff;
+	}
+}

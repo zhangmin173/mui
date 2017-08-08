@@ -1,5 +1,10 @@
 .control {
-    
+    position: relative;
+
+    &:not(:last-child) {
+        margin-bottom: .5rem;
+    }
+
     &>label {
         display: block;
         font-weight: 700;
@@ -27,6 +32,36 @@
 
         .help-text {
             color: @danger;
+        }
+    }
+
+    &.label-left {
+        &>label {
+            position: absolute;
+            top: 0;
+            left: .25rem;
+            min-width: .1rem;
+            text-align: center;
+            opacity: .5;
+        }
+
+        .input {
+            padding-left: 1.25rem;
+        }
+    }
+
+    &.icon-right {
+        &>i {
+            position: absolute;
+            top: .2rem;
+            right: .25rem;
+            min-width: 1rem;
+            text-align: center;
+            opacity: .5;
+        }
+
+        .input {
+            padding-right: 1.25rem;
         }
     }
 }
