@@ -32,10 +32,10 @@ Index.prototype = {
             }
         })
 
-        $.html2img('#j-con',function(url) {
-            var s = '<img src="'+url+'">';
-            $('#j-con').html(s);
-        })
+        // $.html2img('#j-con',function(url) {
+        //     var s = '<img src="'+url+'">';
+        //     $('#j-con').html(s);
+        // })
 
         $('#j-reset').on('click',function() {
             $('#j-con').MobileLoad('reLoad');
