@@ -22,13 +22,14 @@ Index.prototype = {
         //var iscroll = new IScroll('#j-con');
 
         $('#j-con').MobileLoad({
-            url: 'http://192.168.31.235/tp5/api/region/index',
-            isLoading: true,
+            debug: true,
+            url: 'http://192.168.31.235/tp5/index/index/page',
             model: 'tpl-main',
             initNoData: '<div style="height: 160px;">没数据</div>',
             noData: '<div style="height: 160px;">最后</div>',
+            errorData: '',
             queryParams: function () {
-                return { parent_id: 10000 }
+                return { status: 1 }
             }
         })
 

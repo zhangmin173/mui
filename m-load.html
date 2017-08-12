@@ -12,11 +12,17 @@
 	<script src="lib/template/template.min.js"></script>
 	<script src="js/global.js"></script>
 
+	<script src="lib/iscroll/iscroll.js"></script>
 	<script src="lib/m-mobileLoad/m-mobileLoad.js"></script>
-	<script src="lib/html2canvas/html2canvas.js"></script>
 
 	<style>
+		.note {
+			padding: 10px;
+		}
 
+		.note img {
+			width: 100%;
+		}
 	</style>
 </head>
 <body>
@@ -27,12 +33,17 @@
 		<span class="nav-title">导航标题</span>
 	</nav>
 	<div id="j-con" class="container">
-		<button id="j-reset">重启</button>
+	    
 	</div>
+	<button id="j-reset">重启</button>
 	<!-- 模板 -->
-	<script id="tpl-main" type="text/html">
+	<script id="tpl-note" type="text/html">
 		{{each data as d i}}
-			<div style="height: 160px;">{{d.id}}:{{d.city_name}}</div>
+			<div class="note">
+				<img src="http://192.168.31.235/tp5/public/{{d.img}}">
+				<h1 class="text-two">{{d.title}}</h1>
+				<p class="text-two">{{d.content}}</p>
+			</div>
 		{{/each}}
 	</script>
 	<!-- 版权 -->
