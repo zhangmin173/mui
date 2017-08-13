@@ -14,8 +14,13 @@
 
 	<script src="lib/iscroll/iscroll.js"></script>
 	<script src="lib/m-mobileLoad/m-mobileLoad.js"></script>
+	<script src="lib/m-fall/m-fall.js"></script>
+	<script src="lib/imageLoaded/imagesloaded.js"></script>
 
 	<style>
+		.container {
+			position: relative;
+		}
 		.note {
 			padding: 10px;
 		}
@@ -33,15 +38,15 @@
 		<span class="nav-title">导航标题</span>
 	</nav>
 	<div id="j-con" class="container">
-	    
+
 	</div>
 	<button id="j-reset">重启</button>
 	<!-- 模板 -->
 	<script id="tpl-note" type="text/html">
 		{{each data as d i}}
-			<div class="note">
-				<img src="http://192.168.31.235/tp5/public/{{d.img}}">
-				<h1 class="text-two">{{d.title}}</h1>
+			<div class="note waterfall-item">
+				<img src="/tp5/public/{{d.img}}">
+				<h1 class="text-two text-justify">{{d.title}}</h1>
 				<p class="text-two">{{d.content}}</p>
 			</div>
 		{{/each}}

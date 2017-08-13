@@ -19,27 +19,25 @@ Index.prototype = {
     render: function(res) {
         var _this = this;
 
-        //var iscroll = new IScroll('#j-con');
-
-        $('#j-con').MobileLoad({
+        var a = $('#j-con').MobileLoad({
             debug: true,
-            url: 'http://192.168.31.235/tp5/index/index/page',
-            model: 'tpl-main',
-            initNoData: '<div style="height: 160px;">没数据</div>',
-            noData: '<div style="height: 160px;">最后</div>',
+            url: '/tp5/index/index/page',
+            model: 'tpl-note',
+            initNoData: '',
+            noData: '',
             errorData: '',
             queryParams: function () {
                 return { status: 1 }
+            },
+            onRender: function(e,d) {
+                var html = template(e.opts.model,d);
+                e.$element.append(html);
+                //$('#j-con').WaterFall({});
             }
         })
 
-        // $.html2img('#j-con',function(url) {
-        //     var s = '<img src="'+url+'">';
-        //     $('#j-con').html(s);
-        // })
-
         $('#j-reset').on('click',function() {
-            $('#j-con').MobileLoad('reLoad');
+            a.reLoad();
         })
 
         _this.handle();
