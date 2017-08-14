@@ -18,15 +18,48 @@
 	<script src="lib/imageLoaded/imagesloaded.js"></script>
 
 	<style>
+		body {
+			background-color: #e2e2e2;
+		}
 		.container {
 			position: relative;
 		}
 		.note {
-			padding: 10px;
+			background-color: #fff;
+		}
+
+		.note-desc {
+			padding-left: .25rem;
+			padding-right: .25rem;
+		}
+
+		.note .title {
+			font-size: 0.6rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: normal!important;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			height: 1.2rem;
+		}
+
+		.note .content {
+			font-size: 0.55rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: normal!important;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
 		}
 
 		.note img {
 			width: 100%;
+		}
+
+		.waterfall-item {
+			opacity: 0;
 		}
 	</style>
 </head>
@@ -38,16 +71,19 @@
 		<span class="nav-title">导航标题</span>
 	</nav>
 	<div id="j-con" class="container">
-
+		
 	</div>
-	<button id="j-reset">重启</button>
+	
 	<!-- 模板 -->
 	<script id="tpl-note" type="text/html">
 		{{each data as d i}}
 			<div class="note waterfall-item">
 				<img src="/tp5/public/{{d.img}}">
-				<h1 class="text-two text-justify">{{d.title}}</h1>
-				<p class="text-two">{{d.content}}</p>
+				<div class="note-desc">
+					<h1 class="title">{{d.title}}</h1>
+					<p class="content">{{d.content}}</p>
+				</div>
+				<button class="note-del">删除</button>
 			</div>
 		{{/each}}
 	</script>

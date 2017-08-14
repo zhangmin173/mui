@@ -7,6 +7,10 @@ var gulp = require('gulp'), // gulp打包工具
     rename = require('gulp-rename'), // 重命名
     concat = require("gulp-concat"); // 文件合并
 
+var autoprefixOptions = {
+    browsers: ['last 2 versions', '>1%', 'Android >= 3.2'],
+}
+
 // 合并所有js到all.js
 gulp.task('concat', function () {
     gulp.src('js/*.js')
@@ -19,7 +23,7 @@ gulp.task('less', function() {
     return gulp.src('less/*.less')
         .pipe(less())
         .pipe(plumber())
-        .pipe(autoprefix())
+        .pipe(autoprefix(autoprefixOptions))
         .pipe(cssmin())
         .pipe(gulp.dest('css/'));
 });
@@ -38,7 +42,7 @@ gulp.task('less-lib', function() {
     return gulp.src('lib/**/*.less')
         .pipe(less())
         .pipe(plumber())
-        .pipe(autoprefix())
+        .pipe(autoprefix(autoprefixOptions))
         .pipe(cssmin())
         .pipe(gulp.dest('lib/'));
 });
