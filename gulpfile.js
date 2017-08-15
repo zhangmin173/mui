@@ -60,7 +60,7 @@ gulp.task('js-lib', function() {
 gulp.task('watch', function() {
     gulp.watch('less/**/*.less', ['less']);
     // gulp.watch('js/*.js', ['js']);
-    // gulp.watch('lib/**/*.less', ['less-lib']);
+    gulp.watch('lib/**/*.less', ['less-lib']);
     // gulp.watch('lib/**/*.js', ['js-lib']);
 });
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>pui</title>
+	<link rel="stylesheet" href="css/global.css">
+	<link rel="stylesheet" href="lib/font-awesome/4.6.3/font-awesome.css">
+	<script src="lib/jquery/1.9.1/jquery.min.js"></script>
+	<script src="lib/headroom/0.7.0/headroom.js"></script>
+	<script src="lib/template/template.min.js"></script>
+	<script src="js/global.js"></script>
+	
+	<link rel="stylesheet" href="lib/webuploader/webuploader.css">
+	<script src="lib/webuploader/webuploader.js"></script>
+</head>
+<body>
+	<div class="container">
+		<form class="box">
+			<div class="control">
+				<label>姓名：</label>
+				<input class="input" type="text" placeholder="请输入username">
+			</div>
+			<div class="control">
+				<label>姓名：</label>
+				<div id="j-list">
+					<div class="upload">
+						<img class="upload-img" src="src/banner_1.jpg">
+						<a class="upload-del" href="javascript:;"><i class="fa fa-trash-o"></i></a>
+					</div>
+					<div class="upload">
+						<img class="upload-img" src="src/banner_1.jpg">
+						<a class="upload-del" href="javascript:;"><i class="fa fa-trash-o"></i></a>
+					</div>
+				</div>
+				<div class="upload">
+					<div id="j-picker" class="upload-img"><img src="src/add.png"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script id="tpl-upload" type="text/html">
+		<div class="upload">
+			<img class="upload-img" src="/tp5/public/{{path}}">
+			<a class="upload-del" href="javascript:;"><i class="fa fa-trash-o"></i></a>
+		</div>
+	</script>
+	<script>
+		uploadInit();
+
+		$('#j-list').on('click','.upload-del',function() {
+			$(this).parents('.upload').remove();
+		})
+		function uploadInit() {
+	        var $list = $('#j-list');
+	        // 上传准备
+	        var uploader = WebUploader.create({
+	            auto: true, //开启自动上传
+	            fileVal: 'filedata',
+	            formData: {
+	                access_token:'',
+	                app_key: '',
+	            },
+	            swf: 'Uploader.swf',
+	            server: '/tp5/index/upload/image',
+	            pick: '#j-picker',
+	            // 只允许选择图片文件。
+	            accept: {
+	                title: 'Images',
+	                extensions: 'gif,jpg,jpeg,bmp,png',
+	                mimeTypes: 'image/jpg,image/jpeg,image/png'
+	            },
+	            method:'post',
+	        })
+	        // 开始上传
+	        uploader.on('startUpload', function(file) {
+	            //$.loadShow();
+	        });
+	        // 结束上传
+	        uploader.on('uploadFinished', function(file) {
+	            //$.loadOver();
+	        });
+	        // 上传成功
+	        uploader.on('uploadSuccess', function(file, res) {
+	            console.log(res);
+	            var html = template('tpl-upload',res);
+	            $list.append(html);
+	        });
+	        // 上传失败
+	        uploader.on('uploadError', function(file, res) {
+	            console.log(res);
+	        });
+	    }
+	</script>
+</body>
+</html>

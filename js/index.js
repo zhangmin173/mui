@@ -20,11 +20,11 @@ Index.prototype = {
         var _this = this;
 
         var waterfall = $('#j-con').WaterFall({
-                debug: false,
+                debug: true,
             });
 
         var a = $('#j-con').MobileLoad({
-            debug: true,
+            debug: false,
             url: '/tp5/index/index/page',
             model: 'tpl-note',
             initNoData: '',
@@ -36,11 +36,11 @@ Index.prototype = {
             onRender: function(e,d) {
                 var html = template(e.opts.model,d);
                 e.$element.append(html);
-                $('#j-con').imagesLoaded().always(function(instance) {
+                e.$element.imagesLoaded().always(function(instance) {
                     waterfall.fall();
                 }).progress(function(instance, image) {
                     if (image.isLoaded == false) {
-                        image.img.src = 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3903556257,2693994588&fm=175&s=65F51AC6C5DA1BC67ED275390300D012&w=639&h=480&img.JPEG';
+                        image.img.src = '/mui/src/error.png';
                     }
                 });
             }
