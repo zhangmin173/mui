@@ -14,7 +14,7 @@
 @danger:          		 #E9573F;
 
 // 字体
-@font-family-base:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-base:        sans-serif;
 
 @font-size-base:          .7rem;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
@@ -37,10 +37,19 @@
 @headings-small-color:    lighten(@gray,2.5%);
 
 // 通用参数
-@body-bg:               #fff; // 全局字体颜色
-@text-color:            @gray;  // 全局字体颜色
+@body-bg:               #f2f2f2; // 全局背景颜色
+@text-color:            @gray-dark;  // 全局字体颜色
 @grid-columns:          12; // 栅格数
-@border-color:          @gray-lighter; // 边框颜色
+@border-color:          #e5e5e5; // 边框，分割线颜色
+@gray-8a:               #8a8a8a; // 说明，提示字体
+@gray-d4:               #d4d4d4; // 字体图标，输入框提示字体
+@gray-f8:        		#f8f8f8; // 输入框背景色
+@gray-6e:               #6e6e6e; // 标签栏字体色
+@z-index-1: 1;
+@z-index-2: 99;
+@z-index-3: 999;
+@z-index-4: 9999;
+@z-index-5: 99999;                              
 
 // 按钮
 @btn-tx-default:         @gray;
@@ -64,16 +73,25 @@
 @table-bg-primary:               lighten(@primary,5%);
 
 // 导航
-@nav-tx-size:                    .9rem;
-@nav-tx-primary:                 @gray-lighter;
-@nav-bg-primary:                 @primary;
+@nav-tx-size: .9rem;
+@nav-tx-color: #fff;
+@nav-bg-color: @primary;
+@nav-height: 2.2rem;
+@nav-index: @z-index-4;
+@nav-btn-width: 2.2rem;
+@nav-pd-guter: .5rem;
 
 // 菜单
-@menu-tx-primary:                 @gray;
-@menu-bg-primary:                 @gray-lighter;
-@menu-active-tx-primary:          lighten(@primary,5%);
-@menu-active-bg-primary:          lighten(@primary,5%);
-@menu-shadow:                     lighten(@gray-light,20%);
+@menu-height: 2.45rem;
+@menu-tx-size: .65rem;
+@menu-tx-color: @gray-6e;
+@menu-bg-color: @body-bg;
+@menu-active-tx-color: @primary;
+@menu-active-bg-color: @primary;
+@menu-border-color: @border-color;
+@menu-index: @z-index-4;
+@menu-border-width: 1px;
+@menu-super-size: 2.6rem;
 
 // 列表
 @list-tx-color:                   @gray;

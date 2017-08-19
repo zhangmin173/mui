@@ -59,7 +59,7 @@ gulp.task('js-lib', function() {
 // 开启监控，当这些文件变化时自动执行任务
 gulp.task('watch', function() {
     gulp.watch('less/**/*.less', ['less']);
-    // gulp.watch('js/*.js', ['js']);
+    gulp.watch('js/*.js', ['js']);
     gulp.watch('lib/**/*.less', ['less-lib']);
     // gulp.watch('lib/**/*.js', ['js-lib']);
 });

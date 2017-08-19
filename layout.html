@@ -12,14 +12,16 @@
 	<script src="lib/template/template.min.js"></script>
 	<script src="js/global.js"></script>
 	<style>
-
+		body {
+			background-color: #fff;
+		}
 	</style>
 </head>
 <body>
 	<!-- 导航 -->
 	<nav id="j-nav" class="nav fixed-top">
-		<a class="nav-left" href=""><i class="fa fa-angle-left"></i></a>
-		<a class="nav-right" href=""><i class="fa fa-ellipsis-h"></i></a>
+		<a class="nav-btn nav-left" href=""><i class="fa fa-angle-left"></i></a>
+		<a class="nav-btn nav-right" href=""><i class="fa fa-ellipsis-h"></i></a>
 		<span class="nav-title">导航标题</span>
 	</nav>
 	<div class="container" style="height: 100rem;">
@@ -58,22 +60,24 @@
 	</footer>
 	<!-- 菜单 -->
 	<nav id="j-menu" class="menu fixed-bottom">
-		<a class="active" href="">
+		<a class="menu-btn active" href="">
 			<i class="fa fa-home"></i>
 			<p>首页</p>
 		</a>
-		<a href="">
+		<a class="menu-btn" href="">
 			<i class="fa fa-home"></i>
 			<p>首页</p>
 		</a>
-		<a href="">
-			<img class="menu-special" src="src/app.png" alt="">
+		<a class="menu-btn" href="">
+			<div class="menu-special">
+				<img src="src/app.png" alt="">
+			</div>
 		</a>
-		<a href="">
+		<a class="menu-btn" href="">
 			<i class="fa fa-home"></i>
 			<p>首页</p>
 		</a>
-		<a href="">
+		<a class="menu-btn" href="">
 			<i class="fa fa-home"></i>
 			<p>首页</p>
 		</a>

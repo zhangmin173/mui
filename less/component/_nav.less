@@ -1,5 +1,5 @@
 .with-nav-top {
-	padding-top: 2rem;
+	padding-top: 4.4rem;
 }
 .with-menu-bottom {
 	
@@ -8,10 +8,9 @@
 	}
 }
 .nav {
-	padding: .25rem 0;
-	background-color: @nav-bg-primary;
-	color: @nav-tx-primary;
-	font-size: @nav-tx-size;
+	height: @nav-height;
+	background-color: @nav-bg-color;
+	color: @nav-tx-color;
 	text-align: center;
 
 	&.fixed-top {
@@ -19,76 +18,97 @@
 		left: 0;
 		right: 0;
 		top: 0;
-		z-index: 999;
+		z-index: @nav-index;
 	}
 
-	a {
+	.nav-btn {
 		display: inline-block;
-		min-width: 2rem;
+		width: @nav-btn-width;
+		height: 100%;
 		text-decoration: none;
-		color: @nav-tx-primary;
+		color: @nav-tx-color;
+		
+		i {
+			line-height: @nav-height;
+			font-size: @nav-tx-size*2;
+		}
 	}
 
 	.nav-left {
+		text-align: left;
 		float: left;
+		margin-left: @nav-pd-guter;
 	}
 
 	.nav-right {
+		text-align: right;
 		float: right;
+		margin-right: @nav-pd-guter;
+	}
+
+	.nav-title {
+		font-size: @nav-tx-size;
+		line-height: @nav-height;
 	}
 }
 
 .menu {
+	height: @menu-height;
 	display: flex;
 	justify-content: center;
-	background-color: @menu-bg-primary;
-	box-shadow: 0 -1px 3px @menu-shadow;
+	background-color: @menu-bg-color;
+	border-top: @menu-border-width solid @menu-border-color;
 
 	&.fixed-bottom {
 		position: fixed;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		z-index: 999;
+		z-index: @menu-index;
 	}
 
-	a {
+	.menu-btn {
 		position: relative;
 		align-items: center;
 		flex: 1;
-	    padding: .25rem 0;
 		text-decoration: none;
 		text-align: center;
-		font-size: .5rem;
-		color: @menu-tx-primary;
-		opacity: .8;
+		color: @menu-tx-color;
 
 		i {
-			font-size: 2.2em;
+			font-size: @menu-tx-size*2;
 		}
 
 		p {
 			margin: 0;
+			font-size: @menu-tx-size;
+		}
+	}
+
+	.menu-special {
+		position: absolute;
+		left: 50%;
+		top: -@menu-super-size/4;
+		z-index: @menu-index + 100;
+		margin-left: -@menu-super-size/2;
+		padding: @menu-super-size/12;
+		display: inline-block;
+		width: @menu-super-size;
+		height: @menu-super-size;
+		border-radius: 50%;
+		background-color: @menu-bg-color;
+		border: @menu-border-width solid @menu-border-color;
+
+		img {
+			width: 100%;
 		}
 
-		.menu-special {
-			position: absolute;
-			left: 50%;
-			top: -.5rem;
-			margin-left: -1.2rem;
-			padding: .15rem;
-			display: inline-block;
-			width: 2.4rem;
-			height: 2.4rem;
-			border-radius: 50%;
-			background-color: @menu-bg-primary;
-		}
 	}
 
 	a.active {
 		font-weight: 400;
 		opacity: 1;
-		color: @menu-active-tx-primary;
+		color: @menu-active-tx-color;
 	}
 }
 

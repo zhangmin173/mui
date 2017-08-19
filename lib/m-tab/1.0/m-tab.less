@@ -23,8 +23,12 @@
 		text-align: center;
 		border-bottom: 2px solid transparent;
 
+		&:not(:last-child) {
+			border-right: .05rem solid #eee;
+		}
+
 		&.cur {
-			border-color: @primary;
+			border-bottom-color: @primary;
 		}
 	}
 }

@@ -9,15 +9,16 @@ $(function(){
 		rem: function() {
 			var docW = $(window).width(),
 				minW = 320,
+				baseW = 375,
 				maxW = 640,
 				fontSize = 20;
 			console.log(docW);
 			if (docW >= minW && docW <= maxW) {
-				fontSize *= docW/minW;
+				fontSize *= docW/baseW;
 			} else if (docW < minW) {
 				fontSize = 20;
 			} else {
-				fontSize *= maxW/minW
+				fontSize *= 35;
 			}
 			$('html').css('fontSize', fontSize);
 		},
