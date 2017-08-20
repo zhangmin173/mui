@@ -41,6 +41,7 @@
 @text-color:            @gray-dark;  // 全局字体颜色
 @grid-columns:          12; // 栅格数
 @border-color:          #e5e5e5; // 边框，分割线颜色
+@border-width:          1px;
 @gray-8a:               #8a8a8a; // 说明，提示字体
 @gray-d4:               #d4d4d4; // 字体图标，输入框提示字体
 @gray-f8:        		#f8f8f8; // 输入框背景色
@@ -49,12 +50,13 @@
 @z-index-2: 99;
 @z-index-3: 999;
 @z-index-4: 9999;
-@z-index-5: 99999;                              
+@z-index-5: 99999;
+@guter: 5rem;
 
 // 按钮
 @btn-tx-default:         @gray;
 @btn-bg-default:         @gray-lighter;
-@btn-border-default:     @gray-lighter;
+@btn-border-default:     @border-color;
 
 @btn-tx-primary:         #fff;
 @btn-bg-primary:         @primary;
@@ -65,7 +67,7 @@
 @table-tx-size:                  .6rem;
 
 @table-tx-default:               @gray-light;
-@table-border-default:           @gray-lighter;
+@table-border-default:           @border-color;
 @table-bg-default:               darken(@gray-lighter,5%);
 
 @table-tx-primary:               #fff;
@@ -74,10 +76,11 @@
 
 // 导航
 @nav-tx-size: .9rem;
+@nav-icon-size: 1.6rem;
 @nav-tx-color: #fff;
 @nav-bg-color: @primary;
 @nav-height: 2.2rem;
-@nav-index: @z-index-4;
+@nav-index: @z-index-3;
 @nav-btn-width: 2.2rem;
 @nav-pd-guter: .5rem;
 
@@ -89,9 +92,22 @@
 @menu-active-tx-color: @primary;
 @menu-active-bg-color: @primary;
 @menu-border-color: @border-color;
-@menu-index: @z-index-4;
+@menu-index: @z-index-3;
 @menu-border-width: 1px;
-@menu-super-size: 2.6rem;
+@menu-super-size: 3rem;
+@menu-super-pd: .15rem;
+
+//版权
+@copy-height: 3rem;
+@copy-tx-size: .6rem;
+@copy-tx-color: @gray-8a;
+@copy-tx-acitve: @primary;
+
+//置顶
+@totop-right-guter: @guter/5;
+@totop-bottom-guter: @guter/5;
+@totop-width: 2rem;
+@totop-index: @z-index-4;
 
 // 列表
 @list-tx-color:                   @gray;
@@ -100,3 +116,41 @@
 
 // 加载动画
 @loading-bg-color:                @primary;
+
+
+// 弹窗
+@pop-overlay-color: rgba(0,0,0,.3);
+@pop-title-tx-size: .6rem;
+@pop-title-tx-color: @gray-dark;
+@pop-title-bg-color: @gray-lighter;
+@pop-title-height: 2.2rem;
+@pop-msg-tx-size: .7rem;
+@pop-close-color: @gray-dark;
+@pop-close-tx-size: 1rem;
+@pop-index: @z-index-5;
+@pop-width: 16rem;
+@pop-guter: .5rem;
+
+//选项卡
+@tab-guter: .5rem;
+@tab-active-color: @primary;
+
+//iosselect
+@select-index: @z-index-5;
+@select-bg-color: rgba(0,0,0,.75);
+@select-guter: .5rem;
+@select-height: 290px;
+@select-hd-height: 45px;
+@select-hd-tx-size: .7rem;
+@select-hd-bg-color: @gray-lighter;
+@select-btn-color: @danger;
+@select-tx-color: #111;
+
+//评论框
+@comment-index: @z-index-5;
+@comment-bg-color: rgba(0,0,0,.75);
+@comment-guter: .5rem;
+@comment-hd-height: 45px;
+@comment-hd-tx-size: .7rem;
+@comment-btn-color: @danger;
+@comment-input-width: 16rem;

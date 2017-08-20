@@ -1,11 +1,10 @@
-/* 变量 */
-@primary: #2c9d71; // 主色
-@default: #49dfa5; // 副色
+@import url('../../../less/helper/_variable.less');
+
 .m-tab {
 	overflow-x: scroll;
-	margin-bottom: 10px;
+	margin-bottom: @tab-guter;
 
-	&::-webkit-scrollbar { 
+	&::-webkit-scrollbar {
 		display:none;
 	}
 
@@ -19,21 +18,20 @@
 
 	li {
 		float: left;
-		padding: 10px 0;
+		padding: @tab-guter 0;
 		text-align: center;
 		border-bottom: 2px solid transparent;
 
 		&:not(:last-child) {
-			border-right: .05rem solid #eee;
+			border-right: @border-width solid @border-color;
 		}
 
 		&.cur {
-			border-bottom-color: @primary;
+			border-bottom-color: @tab-active-color;
 		}
 	}
 }
 .m-card {
-	padding: 10px;
 
 	& > div {
 		position: relative;

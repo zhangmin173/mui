@@ -11,11 +11,7 @@
 	<script src="lib/headroom/0.7.0/headroom.js"></script>
 	<script src="lib/template/template.min.js"></script>
 	<script src="js/global.js"></script>
-	<style>
-		body {
-			background-color: #fff;
-		}
-	</style>
+
 </head>
 <body>
 	<!-- 导航 -->
@@ -23,8 +19,13 @@
 		<a class="nav-btn nav-left" href=""><i class="fa fa-angle-left"></i></a>
 		<a class="nav-btn nav-right" href=""><i class="fa fa-ellipsis-h"></i></a>
 		<span class="nav-title">导航标题</span>
+		<form class="nav-search">
+			<input class="input" type="search" name="keyword">
+			<i class="fa fa-search"></i>
+		</form>
 	</nav>
-	<div class="container" style="height: 100rem;">
+	<!-- 主体 -->
+	<div class="container">
 		<div class="list">
 			<a class="item" href="">
 				<div class="item-left">
@@ -54,9 +55,11 @@
 			<span class="label label-info">注意</span>
 		</div>
 	</div>
+	<!-- 置顶 -->
+	<a id="j-top" class="totop" href="javascript:;"><img src="src/logo.png" alt=""></a>
 	<!-- 版权 -->
 	<footer id="j-copy" class="copyright">
-		<a href="">XX网络·</a>提供技术支持
+		<a href="">XX网络</a>&nbsp;-&nbsp;提供技术支持
 	</footer>
 	<!-- 菜单 -->
 	<nav id="j-menu" class="menu fixed-bottom">

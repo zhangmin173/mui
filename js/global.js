@@ -16,9 +16,9 @@ $(function(){
 			if (docW >= minW && docW <= maxW) {
 				fontSize *= docW/baseW;
 			} else if (docW < minW) {
-				fontSize = 20;
+				fontSize = 16;
 			} else {
-				fontSize *= 35;
+				fontSize = 35;
 			}
 			$('html').css('fontSize', fontSize);
 		},
@@ -26,12 +26,19 @@ $(function(){
 		h5show: function(options) {
 			var opts = $.extend({},{
 				navShow: true,
-				menuShow: true,
+				searchShow: false,
 				copyShow: true,
+				topShow: false,
+				menuShow: true,
 			},options);
 			if (opts.navShow == false) {
 				$('#j-nav').hide();
 			} else {
+				if (opts.searchShow) {
+					$('#j-nav').find('.nav-title').hide();
+				} else {
+					$('#j-nav').find('.nav-search').hide();
+				}
 				$('body').addClass('with-nav-top');
 
 				$("#j-nav").headroom({
@@ -44,13 +51,22 @@ $(function(){
                     }
                 });
 			}
+			if (opts.copyShow == false) {
+				$('#j-copy').hide();
+			} else {
+				$('body').addClass('with-copy-bottom');
+			}
 			if (opts.menuShow == false) {
 				$('#j-menu').hide();
 			} else {
 				$('body').addClass('with-menu-bottom');
 			}
-			if (opts.copyShow == false) {
-				$('#j-copy').hide();
+			if (opts.topShow == false) {
+				$('#j-top').hide();
+			} else {
+				$('#j-top').on('click', function() {
+					$('html,body').animate({scrollTop:0}, 500);
+				});
 			}
 		},
 		// 加载动画

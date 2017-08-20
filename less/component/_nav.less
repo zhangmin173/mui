@@ -1,13 +1,15 @@
 .with-nav-top {
-	padding-top: 4.4rem;
+	padding-top: @nav-height;
+}
+.with-copy-bottom {
+	padding-bottom: @copy-height;
 }
 .with-menu-bottom {
-	
-	.copyright {
-		margin-bottom: 3.5rem;
-	}
+	padding-bottom: @menu-height + @copy-height;
 }
+
 .nav {
+	position: relative;
 	height: @nav-height;
 	background-color: @nav-bg-color;
 	color: @nav-tx-color;
@@ -27,10 +29,10 @@
 		height: 100%;
 		text-decoration: none;
 		color: @nav-tx-color;
-		
+
 		i {
 			line-height: @nav-height;
-			font-size: @nav-tx-size*2;
+			font-size: @nav-icon-size;
 		}
 	}
 
@@ -49,6 +51,30 @@
 	.nav-title {
 		font-size: @nav-tx-size;
 		line-height: @nav-height;
+	}
+
+	.nav-search {
+		position: absolute;
+		left: @nav-pd-guter + @nav-btn-width;
+		right: @nav-pd-guter + @nav-btn-width;
+		top: 0;
+		bottom: 0;
+		padding-top: .3rem;
+
+		.input {
+			padding-left: 1.7rem;
+			border-radius: .25rem;
+			font-size: .7rem;
+			color: @gray-8a;
+		}
+
+		i {
+			position: absolute;
+			left: .4rem;
+			top: .65rem;
+			font-size: @nav-tx-size;
+			color: @gray-8a;
+		}
 	}
 }
 
@@ -83,15 +109,18 @@
 			margin: 0;
 			font-size: @menu-tx-size;
 		}
+
+		&.active {
+			color: @menu-active-tx-color;
+		}
 	}
 
 	.menu-special {
 		position: absolute;
 		left: 50%;
 		top: -@menu-super-size/4;
-		z-index: @menu-index + 100;
 		margin-left: -@menu-super-size/2;
-		padding: @menu-super-size/12;
+		padding: @menu-super-pd;
 		display: inline-block;
 		width: @menu-super-size;
 		height: @menu-super-size;
@@ -99,17 +128,32 @@
 		background-color: @menu-bg-color;
 		border: @menu-border-width solid @menu-border-color;
 
+		&:before {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: @menu-super-size/4;
+			margin-left: -@menu-super-size/2;
+			display: inline-block;
+			width: @menu-super-size;
+			height: @menu-height;
+			background-color: @menu-bg-color;
+		}
+
 		img {
-			width: 100%;
+			position: absolute;
+			left: 50%;
+			top: 0;
+			margin-left: -@menu-super-size/2;
+			padding: @menu-super-pd;
+			display: inline-block;
+			width: @menu-super-size;
+			height: @menu-super-size;
+			border-radius: 50%;
 		}
 
 	}
 
-	a.active {
-		font-weight: 400;
-		opacity: 1;
-		color: @menu-active-tx-color;
-	}
 }
 
 // nav动画
@@ -140,4 +184,16 @@
 }
 .nav-animated.nav-slideUp {
 	animation-name: navSlideUp
+}
+
+.totop {
+	position: fixed;
+	right: @totop-right-guter;
+	bottom: @totop-bottom-guter;
+	z-index: @totop-index;
+
+	img {
+		display: inline-block;
+		width: @totop-width;
+	}
 }

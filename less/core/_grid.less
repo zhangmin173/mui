@@ -2,10 +2,16 @@ html,body {
     height: 100%;
 }
 .container {
-    min-width: 300px;
+    min-width: 320px;
     max-width: 640px;
     margin: 0 auto;
-    min-height: 90%;
+    min-height: 100%;
+    cursor: pointer;
+
+    &:before {
+        content: '';
+        display: table;
+    }
 }
 .row {
     letter-spacing: -0.31em;
