@@ -1,3 +1,5 @@
+@import url('../../../less/helper/_variable.less');
+
 /* 
  *  Owl Carousel - Animate Plugin
  */
@@ -218,7 +220,7 @@
 // 分页样式
 .owl-controls {
   position: absolute;
-  bottom: .5rem;
+  bottom: @owl-dot-bottom;
   left: 0;
   right: 0;
 }
@@ -229,16 +231,27 @@
     display: inline-block;
 
     &.active span {
-      background-color: #4A89DC;
+      background-color: @owl-dot-color;
     }
   }
 
   span {
     display: block;
-    width: .5rem;
-    height: .5rem;
+    width: @owl-dot-size;
+    height: @owl-dot-size;
     margin: 0 .25rem;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: @owl-dot-defautl-color;
+  }
+}
+
+.owl-one {
+  display: block;
+
+  a {
+    display: block;
+  }
+  img {
+    width: 100%;
   }
 }

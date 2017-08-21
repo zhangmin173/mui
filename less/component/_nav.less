@@ -5,6 +5,9 @@
 	padding-bottom: @copy-height;
 }
 .with-menu-bottom {
+	padding-bottom: @menu-height;
+}
+.with-menu-copy-bottom {
 	padding-bottom: @menu-height + @copy-height;
 }
 
@@ -95,6 +98,7 @@
 
 	.menu-btn {
 		position: relative;
+		padding-top: @menu-height/2 - @menu-tx-size*3/2;
 		align-items: center;
 		flex: 1;
 		text-decoration: none;
@@ -103,11 +107,13 @@
 
 		i {
 			font-size: @menu-tx-size*2;
+			line-height: 1em;
 		}
 
 		p {
 			margin: 0;
 			font-size: @menu-tx-size;
+			line-height: 1em;
 		}
 
 		&.active {
@@ -189,7 +195,7 @@
 .totop {
 	position: fixed;
 	right: @totop-right-guter;
-	bottom: @totop-bottom-guter;
+	bottom: @menu-height + @totop-bottom-guter;
 	z-index: @totop-index;
 
 	img {
