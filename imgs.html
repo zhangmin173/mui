@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no, email=no"/>
+	<title>朋友圈效果</title>
+	<script src="lib/jquery/1.9.1/jquery.min.js"></script>
+	<script src="lib/template/template.min.js"></script>
+	<style>
+		body { margin: 0; padding: 0;}
+		.imgbox { display: flex;}
+		.img-item { flex: 1; height: 33.3333vw; background-position: center center; background-repeat: no-repeat;}
+	</style>
+</head>
+<body>
+	<div id="j-main">
+
+	</div>
+	<script id="tpl-main" type="text/html">
+		{{each data as d i}}
+			{{if d.num == 1}}
+				{{include 'tpl-1' d}}
+			{{else if d.num == 2}}
+				{{include 'tpl-2' d}}
+			{{else if d.num == 3}}
+				{{include 'tpl-3' d}}
+			{{else if d.num == 4}}
+				{{include 'tpl-4' d}}
+			{{else if d.num == 5}}
+				{{include 'tpl-5' d}}
+			{{else if d.num == 6}}
+				{{include 'tpl-6' d}}
+			{{else if d.num == 7}}
+				{{include 'tpl-7' d}}
+			{{else if d.num == 8}}
+				{{include 'tpl-8' d}}
+			{{else if d.num == 9}}
+				{{include 'tpl-9' d}}
+			{{/if}}
+		{{/each}}
+	</script>
+	<script id="tpl-1" type="text/html">
+		<div class="imgbox">
+			<div class="img-item" style="background-image: url('{{imglist[0].path}}'); background-size: 100% auto;"></div>
+		</div>
+	</script>
+	<script id="tpl-2" type="text/html">
+		<div class="imgbox">
+			{{each imglist as d}}
+				{{if d.w > d.h}}
+				<div class="img-item" style="background-image: url('{{d.path}}'); background-size: auto 100% ;"></div>
+				{{else}}
+				<div class="img-item" style="background-image: url('{{d.path}}'); background-size: 100% auto;"></div>
+				{{/if}}
+			{{/each}}
+		</div>
+	</script>
+	<script id="tpl-3" type="text/html">
+		<div class="imgbox">
+			{{each imglist as d}}
+				{{if d.w > d.h}}
+				<div class="img-item" style="background-image: url('{{d.path}}'); background-size: auto 100% ;"></div>
+				{{else}}
+				<div class="img-item" style="background-image: url('{{d.path}}'); background-size: 100% auto;"></div>
+				{{/if}}
+			{{/each}}
+		</div>
+	</script>
+	<script id="tpl-4" type="text/html">
+		{{each imglist as d i}}
+			{{if i%3 == 0}}
+				<div class="imgbox">
+			{{/if}}
+
+			{{if i < 3}}
+				{{if d.w > d.h}}
+				<div class="img-item" style="background-image: url('{{d.path}}'); background-size: auto 100% ;"></div>
+				{{else}}
+				<div class="img-item" style="background-image: url('{{d.path}}'); background-size: 100% auto;"></div>
+				{{/if}}
+			{{else}}
+				<div class="img-item" style="background-image: url('{{imglist[3].path}}'); background-size: 100% auto;"></div>
+			{{/if}}
+
+			{{if i== 2 || i == 3}}
+				</div>
+			{{/if}}
+		{{/each}}
+	</script>
+	<script id="tpl-5" type="text/html">
+		{{each imglist as d i}}
+			{{if i%3 == 0}}
+				<div class="imgbox">
+			{{/if}}
+
+			{{if d.w > d.h}}
+			<div class="img-item" style="background-image: url('{{d.path}}'); background-size: auto 100% ;"></div>
+			{{else}}
+			<div class="img-item" style="background-image: url('{{d.path}}'); background-size: 100% auto;"></div>
+			{{/if}}
+
+			{{if i== 2 || i == 4}}
+				</div>
+			{{/if}}
+		{{/each}}
+	</script>
+	<script id="tpl-6" type="text/html">
+		{{each imglist as d i}}
+			{{if i%3 == 0}}
+				<div class="imgbox">
+			{{/if}}
+
+			{{if d.w > d.h}}
+			<div class="img-item" style="background-image: url('{{d.path}}'); background-size: auto 100% ;"></div>
+			{{else}}
+			<div class="img-item" style="background-image: url('{{d.path}}'); background-size: 100% auto;"></div>
+			{{/if}}
+
+			{{if i%3 == 2}}
+				</div>
+			{{/if}}
+		{{/each}}
+	</script>
+	<script id="tpl-7" type="text/html">
+		{{each imglist as d i}}
+			{{if i%3 == 0}}
+				<div class="imgbox">
+			{{/if}}
+
+			{{if i < 6}}
+				{{if d.w > d.h}}
+				<div class="img-item" style="background-image: url('{{d.path}}'); background-size: auto 100% ;"></div>
+				{{else}}
+				<div class="img-item" style="background-image: url('{{d.path}}'); background-size: 100% auto;"></div>
+				{{/if}}
+			{{else}}
+				<div class="img-item" style="background-image: url('{{d.path}}'); background-size: 100% auto;"></div>
+			{{/if}}
+
+			{{if i%3 == 2 || i == 6}}
+				</div>
+			{{/if}}
+		{{/each}}
+	</script>
+	<script id="tpl-8" type="text/html">
+		{{each imglist as d i}}
+			{{if i%3 == 0}}
+				<div class="imgbox">
+			{{/if}}
+
+			{{if d.w > d.h}}
+			<div class="img-item" style="background-image: url('{{d.path}}'); background-size: auto 100% ;"></div>
+			{{else}}
+			<div class="img-item" style="background-image: url('{{d.path}}'); background-size: 100% auto;"></div>
+			{{/if}}
+
+			{{if i%3 == 2 || i == 7}}
+				</div>
+			{{/if}}
+		{{/each}}
+	</script>
+	<script id="tpl-9" type="text/html">
+		{{each imglist as d i}}
+			{{if i%3 == 0}}
+				<div class="imgbox">
+			{{/if}}
+
+			{{if d.w > d.h}}
+			<div class="img-item" style="background-image: url('{{d.path}}'); background-size: auto 100% ;"></div>
+			{{else}}
+			<div class="img-item" style="background-image: url('{{d.path}}'); background-size: 100% auto;"></div>
+			{{/if}}
+
+			{{if i%3 == 2}}
+				</div>
+			{{/if}}
+		{{/each}}
+	</script>
+	<script>
+		let d = {
+			data: [
+				{
+					imglist: [
+						{
+							path: 'src/1.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/2.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/3.jpg',
+							w: 300,
+							h: 200
+						},
+						{
+							path: 'src/4.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/5.jpg',
+							w: 200,
+							h: 200
+						},
+						{
+							path: 'src/banner_1.jpg',
+							w: 800,
+							h: 400
+						},
+						{
+							path: 'src/7.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/8.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/banner_3.jpg',
+							w: 800,
+							h: 400
+						}
+					],
+					num: 9
+				},
+				{
+					imglist: [
+						{
+							path: 'src/1.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/2.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/3.jpg',
+							w: 300,
+							h: 200
+						},
+						{
+							path: 'src/4.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/5.jpg',
+							w: 200,
+							h: 200
+						},
+						{
+							path: 'src/banner_1.jpg',
+							w: 800,
+							h: 400
+						},
+						{
+							path: 'src/7.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/8.jpg',
+							w: 200,
+							h: 400
+						}
+					],
+					num: 8
+				},
+				{
+					imglist: [
+						{
+							path: 'src/1.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/2.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/3.jpg',
+							w: 300,
+							h: 200
+						},
+						{
+							path: 'src/4.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/5.jpg',
+							w: 200,
+							h: 200
+						},
+						{
+							path: 'src/banner_1.jpg',
+							w: 800,
+							h: 400
+						},
+						{
+							path: 'src/7.jpg',
+							w: 200,
+							h: 400
+						}
+					],
+					num: 7
+				},
+				{
+					imglist: [
+						{
+							path: 'src/1.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/2.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/3.jpg',
+							w: 300,
+							h: 200
+						},
+						{
+							path: 'src/4.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/5.jpg',
+							w: 200,
+							h: 200
+						},
+						{
+							path: 'src/banner_1.jpg',
+							w: 800,
+							h: 400
+						}
+					],
+					num: 6
+				},
+				{
+					imglist: [
+						{
+							path: 'src/1.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/2.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/3.jpg',
+							w: 300,
+							h: 200
+						},
+						{
+							path: 'src/4.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/5.jpg',
+							w: 200,
+							h: 200
+						}
+					],
+					num: 5
+				},
+				{
+					imglist: [
+						{
+							path: 'src/1.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/2.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/3.jpg',
+							w: 300,
+							h: 200
+						},
+						{
+							path: 'src/4.jpg',
+							w: 200,
+							h: 400
+						}
+					],
+					num: 4
+				},
+				{
+					imglist: [
+						{
+							path: 'src/1.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/2.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/3.jpg',
+							w: 300,
+							h: 200
+						}
+					],
+					num: 3
+				},
+				{
+					imglist: [
+						{
+							path: 'src/1.jpg',
+							w: 200,
+							h: 400
+						},
+						{
+							path: 'src/banner_1.jpg',
+							w: 600,
+							h: 400
+						}
+					],
+					num: 2
+				},
+				{
+					imglist: [
+						{
+							path: 'src/1.jpg',
+							w: 200,
+							h: 400
+						}
+					],
+					num: 1
+				}
+			]
+		}
+		console.log(d.data[7].imglist[0].path)
+		let html = template('tpl-main',d)
+
+		$('#j-main').append(html)
+	</script>
+</body>
+</html>

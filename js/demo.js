@@ -4,9 +4,7 @@ function Index() {
     }
     this.init();
 }
-
 Index.prototype = {
-    w: null,
     init: function() {
         var _this = this;
 
@@ -29,9 +27,7 @@ Index.prototype = {
     handle: function() {
         var _this = this;
 
-        $('body').on('click','#btn',function() {
-            $('#j-main').prepend('<div style="margin-top: 100px;">'+Math.random()+'</div>');
-        })
+
     }
 };
 

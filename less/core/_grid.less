@@ -1,18 +1,24 @@
-html,body {
+html {
     height: 100%;
 }
-.container {
-    min-width: 320px;
-    max-width: 640px;
-    margin: 0 auto;
-    min-height: 100%;
-    cursor: pointer;
+body {
+  position: relative;
+  min-height: 100%;
+  max-height: auto;
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
 
-    &:before {
-        content: '';
-        display: table;
-    }
+  cursor: pointer;
+
 }
+
+.container:before {
+    position: relative;
+    content: '';
+    display: table;
+}
+
 .row {
     letter-spacing: -0.31em;
     text-rendering: optimizespeed;

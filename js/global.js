@@ -18,16 +18,16 @@ $(function(){
         });
     }
     // 数组增加del方法
-    Array.prototype.del=function(index){  
-        if(isNaN(index)||index>=this.length){  
-            return false;  
-        }  
-        for(var i=0,n=0;i<this.length;i++){  
-            if(this[i]!=this[index]){  
-                this[n++]=this[i];  
-            }  
-        }  
-        this.length-=1;  
+    Array.prototype.del=function(index){
+        if(isNaN(index)||index>=this.length){
+            return false;
+        }
+        for(var i=0,n=0;i<this.length;i++){
+            if(this[i]!=this[index]){
+                this[n++]=this[i];
+            }
+        }
+        this.length-=1;
     };
 
 	$.extend({
@@ -75,6 +75,9 @@ $(function(){
                 }
             });
         },
+        withMenu: function(id) {
+            $('body').addClass('with-menu-bottom');
+        },
 		// 控制页面的共有部分
 		h5show: function(options) {
 			var opts = $.extend({},{
@@ -91,8 +94,8 @@ $(function(){
 			if (opts.copyShow == false) {
 				$('#j-copy').hide();
 			} else {
-				if (opts.menuShow) {
-                    $('body').addClass('with-menu-copy-bottom');
+                if (opts.menuShow) {
+                    $('body').addClass('with-copy-menu-bottom');
                 } else {
                     $('body').addClass('with-copy-bottom');
                 }
@@ -101,11 +104,11 @@ $(function(){
 				$('#j-menu').hide();
 			} else {
                 if (opts.copyShow) {
-                    $('body').addClass('with-menu-copy-bottom');
+                    $('body').addClass('with-copy-menu-bottom');
                 } else {
                     $('body').addClass('with-menu-bottom');
                 }
-                $('#j-copy').css('paddingBottom', '2.25rem');
+
 			}
 			if (opts.topShow == false) {
 				$('#j-top').hide();
@@ -349,15 +352,15 @@ $(function(){
         form2Json: function(id) {
             var a = $(id).serializeArray();
             var d = {};
-            $.each(a, function() {    
-                if (d[this.name]) {    
-                    if (!d[this.name].push) {    
-                        d[this.name] = [d[this.name]];    
-                    }    
-                    d[this.name].push(this.value || '');    
-                } else {    
-                    d[this.name] = this.value || '';    
-                }    
+            $.each(a, function() {
+                if (d[this.name]) {
+                    if (!d[this.name].push) {
+                        d[this.name] = [d[this.name]];
+                    }
+                    d[this.name].push(this.value || '');
+                } else {
+                    d[this.name] = this.value || '';
+                }
             });
             console.log(d);
             return d;

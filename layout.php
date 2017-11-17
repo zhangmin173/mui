@@ -7,7 +7,7 @@
 	<title>pui</title>
 	<!-- 全局资源 -->
 	<link rel="stylesheet" href="css/global.css">
-	<link rel="stylesheet" href="lib/font/iconfont.css">
+	<link rel="stylesheet" href="lib/font-awesome/4.6.3/font-awesome.css">
 	<script src="lib/jquery/1.9.1/jquery.min.js"></script>
 	<script src="lib/headroom/0.7.0/headroom.js"></script>
 	<script src="lib/template/template.min.js"></script>
@@ -20,17 +20,21 @@
 <body>
 	<!-- 导航 -->
 	<nav id="j-nav" class="nav fixed-top">
-		<a id="j-nav-left" class="nav-btn nav-left" href="javascript:history.go(-1);"><i class="iconfont icon-zuojiantou"></i></a>
-		<a id="j-nav-right" class="nav-btn nav-right" href="note.php"><i class="iconfont icon-fz"></i></a>
+		<a class="nav-btn nav-left" href=""><i class="fa fa-angle-left"></i></a>
+		<a class="nav-btn nav-right" href=""><i class="fa fa-ellipsis-h"></i></a>
 		<span class="nav-title">导航标题</span>
+		<form class="nav-search">
+			<input class="input" type="search" name="keyword">
+			<i class="fa fa-search"></i>
+		</form>
 	</nav>
 	<!-- 主体 -->
 	<link rel="stylesheet" href="css/demo.css">
 	<div id="j-main" class="container">
-		
+
 	</div>
 	<script id="tpl-main" type="text/html">
-		
+
 	</script>
 	<script src="js/demo.js"></script>
 	<!-- 置顶 -->

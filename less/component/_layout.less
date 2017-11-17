@@ -1,30 +1,30 @@
+// 根据导航和菜单控制body的上下内边距
 .with-nav-top {
 	padding-top: @nav-height;
-}
-.with-copy-bottom {
-	padding-bottom: @copy-height;
 }
 .with-menu-bottom {
 	padding-bottom: @menu-height;
 }
-.with-menu-copy-bottom {
+.with-copy-bottom {
+	padding-bottom: @copy-height;
+}
+.with-copy-menu-bottom {
 	padding-bottom: @menu-height + @copy-height;
 }
-
+// 导航
 .nav {
-	position: relative;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: @nav-index;
+
 	height: @nav-height;
 	background-color: @nav-bg-color;
 	color: @nav-tx-color;
 	text-align: center;
 
-	&.fixed-top {
-		position: fixed;
-		left: 0;
-		right: 0;
-		top: 0;
-		z-index: @nav-index;
-	}
+
 
 	.nav-btn {
 		display: inline-block;
@@ -80,21 +80,19 @@
 		}
 	}
 }
-
+// 菜单
 .menu {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: @menu-index;
+
 	height: @menu-height;
 	display: flex;
 	justify-content: center;
 	background-color: @menu-bg-color;
 	border-top: @menu-border-width solid @menu-border-color;
-
-	&.fixed-bottom {
-		position: fixed;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: @menu-index;
-	}
 
 	.menu-btn {
 		position: relative;
@@ -162,7 +160,7 @@
 
 }
 
-// nav动画
+// nav的headroom动画
 .nav-animated {
 	animation-duration: .5s;
 	animation-fill-mode: both
@@ -191,7 +189,33 @@
 .nav-animated.nav-slideUp {
 	animation-name: navSlideUp
 }
+// 版权
+.copyright {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: @copy-height;
+	line-height: @copy-height;
+	text-align: center;
+	color: @copy-tx-color;
+	font-size: @copy-tx-size;
 
+	a {
+		text-decoration: none;
+		color: @copy-tx-acitve;
+	}
+}
+// 根据有无菜单 控制版权的位置
+.with-menu-bottom .copyright {
+	bottom: @menu-height;
+}
+
+.with-copy-menu-bottom .copyright {
+	bottom: @menu-height;
+}
+
+// 回到顶部
 .totop {
 	position: fixed;
 	right: @totop-right-guter;
